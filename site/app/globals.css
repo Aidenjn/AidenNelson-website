@@ -1,0 +1,217 @@
+@import 'tailwindcss';
+
+:root {
+  --background: #fff0df;
+  --foreground: #5f1980;
+  --main-accent: #FF3B9D;
+  --secondary-accent: #FFBF00;
+
+  --foreground_text_color: #fff0df;
+  --background_text_color: #5f1980;
+  --hover_text_color: #FFBF00;
+  --hover_background_color: #8e82fe;
+  --focus_text_color: #FFBF00;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-main-accent: var(--main-accent);
+  --color-secondary-accent: var(--secondary-accent);
+
+  --color-foreground_text_color: var(--foreground_text_color);
+  --color-background_text_color: var(--background_text_color);
+  --color-hover_text_color: var(--hover_text_color);
+  --color-hover_background_color: var(--hover_background_color);
+
+  --color-focus_text_color: var(--focus_text_color);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-roboto: var(--font-roboto);
+  --font-arbutus: var(--font-arbutus);
+  --font-ultra: var(--font-ultra);
+
+}
+
+body {
+  /* font-family: var(--font-shantell-sans), Arial, Helvetica, sans-serif; */
+  font-family: var(--font-ultra), Arial, Helvetica, sans-serif;
+
+  @apply bg-background
+    text-foreground_text_color
+    min-w-[250];
+}
+
+.page-main {
+  @apply min-h-screen
+    flex
+    flex-col;
+}
+
+nav {
+  @apply text-foreground_text_color;
+}
+
+footer {
+  @apply text-foreground_text_color;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  @apply text-foreground;
+}
+
+a {
+  @apply hover:text-hover_text_color
+    hover:stroke-hover_text_color
+    duration-300 ease-in-out;
+}
+
+.centered-square {
+  /* display:inline-block;
+  transform-origin: center center; */
+  width: 150px;
+  height: 150px;
+  left: -75px;
+  top: -75px; 
+  /* @apply
+    bg-amber-500; */
+}
+
+.banner-badge-frontmost {
+  @apply
+    flex
+    items-center
+    justify-center;
+}
+
+.grasphand-decor-bar {
+  @apply
+    -mt-px
+    relative
+    -z-10
+    mr-1
+    ml-1
+    pointer-events-none;
+}
+
+.svg-grasp-hand-icon {
+  @apply stroke-background
+    fill-foreground
+    stroke-39;
+}
+
+svg.splat {
+  @apply absolute
+    inset-0
+    w-full
+    h-full;
+}
+
+.splat-path {
+  @apply stroke-background_text_color;
+}
+
+.splat-path-square {
+  @apply stroke-6
+    w-full
+    h-full
+    -translate-y-0.5
+    -translate-x-0.5
+    scale-y-[0.098]
+    scale-x-[0.104];
+}
+
+.splat-path-rectangle {
+  @apply scale-10
+    stroke-18;
+}
+
+.svg-loading-icon {
+  @apply stroke-foreground_text_color
+    stroke-60;
+}
+
+.carousel-button {
+  @apply pr-6
+    pl-6
+    pb-3 
+    pt-1
+    font-bold
+    text-5xl
+    rounded-full
+    border-2
+    border-foreground
+    bg-foreground
+    text-background
+    hover:border-hover_background_color
+    hover:text-hover_text_color;
+}
+
+.nav-link {
+  @apply
+    sm:text-base
+    md:text-lg
+    lg:text-2xl
+    hover:text-hover_text_color
+    hover:stroke-hover_text_color
+    duration-300 ease-in-out;
+}
+
+.nav-link-in-content {
+  @apply
+    underline
+    underline-offset-3
+    hover:text-hover_text_color
+    hover:stroke-hover_text_color
+    duration-300 ease-in-out;
+}
+
+.nav-focus {
+  @apply
+    text-foreground_text_color
+    underline
+    decoration-focus_text_color
+    decoration-4
+    underline-offset-5;
+}
+
+.spin-group {
+
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  display: inline-block; /* important */
+}
+
+.spin-group:hover .spinner {
+  animation: spin 10s ease-out infinite;
+}
+
+/** WARNING: Below rules may break if google changes them for the embedded search component **/
+
+.gsc-table-cell-thumbnail,
+.gs-promotion-image-cell {
+  float: right;
+  display: block;
+  padding-left: 50px;
+}
+
+.gs-image {
+  float: right;
+}
+
+.gs-result .gs-image,
+.gs-result .gs-promotion-image {
+  border-radius: 10px;
+  min-width: 80px;
+}
