@@ -13,7 +13,7 @@ export default function Home() {
 
         {/* Story Sections */}
         <StorySection
-          image_url="/images/greenware_mug.jpeg"
+          image_url="/images/cat_coding.JPG"
           heading="Software Engineer"
           flow_left={true}
           icon={CustomIcon.Disgusted}
@@ -23,18 +23,18 @@ export default function Home() {
           <i>{`"What could one witness to make a face like that?"`}</i>
         </StorySection>
         <StorySection
-          image_url="/images/aero_press_bev.jpeg"
+          image_url="/images/skye_pic.png"
           heading="Game Developer"
           flow_left={false}
           icon={CustomIcon.Robot}
         >
           {`I've worked on a handful of games professionally, from virtual worlds, to screen adaptations of tabletop games.
-          You can see some of these projects in my `}
-          <Link href={'/projects'} className='nav-link-in-content'>projects portfolio page</Link>
+          You can see some of these projects on my `}
+          <Link href={'/projects'} className='nav-link-in-content'>portfolio page</Link>
           {`. Alongside professional work, I continue to develop games independently, exploring the medium as a powerful tool for teaching, storytelling, and shared experience.`}
         </StorySection>
         <StorySection
-          image_url="/images/painting_the_alien.jpg"
+          image_url="/images/mrpurplepout.jpg"
           heading="Ceramic Artist"
           flow_left={true}
           icon={CustomIcon.Alien}
