@@ -6,7 +6,7 @@ export default function FacePortrait() {
   const spacingIncrement: number = 10;
 
   const facePortraitStyle: React.CSSProperties = {
-    width: size - spacingIncrement,
+    width: size + spacingIncrement,
   }
 
   return (
@@ -32,27 +32,15 @@ export default function FacePortrait() {
                   size={size - spacingIncrement * 3}
                   backgroundColor="var(--color-background)"
                   borderRadius={0}
-                >
-                  <FrilledCircle
-                    size={size - spacingIncrement * 4}
-                    backgroundColor="var(--color-foreground)"
-                    borderRadius={0}
-                  >
-                    <FrilledCircle
-                      size={size - spacingIncrement * 5}
-                      backgroundColor="var(--color-background)"
-                      borderRadius={0}
-                    />
-                  </FrilledCircle> 
-                </FrilledCircle>    
+                />
               </FrilledCircle>
             </FrilledCircle>
           </FrilledCircle>
         </div>
 
         <img
-          src='/images/me.jpg'
-          className="rounded-full relative z-10"
+          src='/images/flower_shirt_me.jpeg'
+          className="rounded-full relative z-10 border-6 border-foreground"
           style={{
            ...facePortraitStyle,
           }}
