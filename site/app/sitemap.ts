@@ -1,11 +1,11 @@
-import { client } from '@/lib/sanity';
-import { ALL_CATEGORIES } from '@/lib/constants/categories';
-import { Category } from '@/lib/types/Category';
+// import { client } from '@/lib/sanity';
+// import { ALL_CATEGORIES } from '@/lib/constants/categories';
+// import { Category } from '@/lib/types/Category';
 
-type ArtworkRecord = {
-  slug: string;
-  _updatedAt?: string; // Sanity always returns it, but optional keeps strictness happy
-};
+// type ArtworkRecord = {
+//   slug: string;
+//   _updatedAt?: string; // Sanity always returns it, but optional keeps strictness happy
+// };
 
 export default async function sitemap() {
   const baseUrl = 'https://www.aidennelson.net';
