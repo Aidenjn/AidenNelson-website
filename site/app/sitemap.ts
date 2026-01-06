@@ -8,33 +8,35 @@ type ArtworkRecord = {
 };
 
 export default async function sitemap() {
-  const baseUrl = 'https://www.ensorcelledexpressions.com';
+  const baseUrl = 'https://www.aidennelson.net';
 
-  // Fetch dynamic art piece slugs from Sanity
-  const artworks = await client.fetch<ArtworkRecord[]>(
-    `*[_type == "artwork" && defined(slug.current)]{
-      "slug": slug.current,
-      _updatedAt
-    }`,
-  );
+  // TODO: Add the dynamic URLs
 
-  // Build art piece URLs
-  const artworkEntries = artworks.map((art) => ({
-    url: `${baseUrl}/gallery/${art.slug}`,
-    lastModified: art._updatedAt ? new Date(art._updatedAt) : new Date(),
-  }));
+  // // Fetch dynamic art piece slugs from Sanity
+  // const artworks = await client.fetch<ArtworkRecord[]>(
+  //   `*[_type == "artwork" && defined(slug.current)]{
+  //     "slug": slug.current,
+  //     _updatedAt
+  //   }`,
+  // );
 
-  // Build category URLs (from constants)
-  const categoryEntries = ALL_CATEGORIES.map((category: Category) => ({
-    url: `${baseUrl}/gallery/category/${category.slug}`,
-    lastModified: new Date(),
-  }));
+  // // Build art piece URLs
+  // const artworkEntries = artworks.map((art) => ({
+  //   url: `${baseUrl}/gallery/${art.slug}`,
+  //   lastModified: art._updatedAt ? new Date(art._updatedAt) : new Date(),
+  // }));
+
+  // // Build category URLs (from constants)
+  // const categoryEntries = ALL_CATEGORIES.map((category: Category) => ({
+  //   url: `${baseUrl}/gallery/category/${category.slug}`,
+  //   lastModified: new Date(),
+  // }));
 
   // Add static pages
-  const staticEntries = ['', '/about', '/gallery', '/available'].map((path) => ({
+  const staticEntries = ['', '/', '/projects', '/resume'].map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date(),
   }));
 
-  return [...staticEntries, ...categoryEntries, ...artworkEntries];
+  return [...staticEntries];
 }

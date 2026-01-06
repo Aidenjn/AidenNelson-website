@@ -6,6 +6,6 @@ export default function robots() {
         allow: '/',
       },
     ],
-    sitemap: 'https://www.ensorcelledexpressions.com/sitemap.xml',
+    sitemap: 'https://www.aidennelson.net/sitemap.xml',
   };
 }
