@@ -1,12 +1,11 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
 interface FrilledCircleProps {
-  size?: number,
+  size?: number;
   backgroundColor?: string;
   borderRadius?: number;
-  href?: string;
   children?: React.ReactNode;
 }
 
@@ -14,9 +13,8 @@ interface FrilledCircleProps {
 
 export default function FrilledCircle({
   size = 150,
-  backgroundColor = "#ffffff",
+  backgroundColor = '#ffffff',
   borderRadius = 3,
-  href,
   children,
 }: FrilledCircleProps) {
   const shift = size / 2;
@@ -27,7 +25,7 @@ export default function FrilledCircle({
     height: size,
     left: -shift,
     top: -shift,
-    borderRadius: 3,
+    borderRadius: borderRadius,
   };
 
   return (
@@ -46,9 +44,7 @@ export default function FrilledCircle({
       {Array.from({ length: 10 }).map((_, i) => (
         <div
           key={i}
-          className={`absolute ${
-            i % 2 === 0 ? "z-10" : "z-0"
-          }`}
+          className={`absolute ${i % 2 === 0 ? 'z-10' : 'z-0'}`}
           style={{
             ...baseSquareStyle,
             transform: `rotate(${(i + 1) * 9}deg)`,

@@ -32,8 +32,6 @@ const ultra = Ultra({
   weight: ['400'],
 });
 
-
-
 export const metadata: Metadata = {
   title: 'Aiden Nelson',
   description: `Aiden Nelson's Professional Webpage`,

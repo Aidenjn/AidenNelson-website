@@ -3,14 +3,14 @@
 :root {
   --background: #fff0df;
   --foreground: #5f1980;
-  --main-accent: #FF3B9D;
-  --secondary-accent: #FFBF00;
+  --main-accent: #ff3b9d;
+  --secondary-accent: #ffbf00;
 
   --foreground_text_color: #fff0df;
   --background_text_color: #5f1980;
-  --hover_text_color: #FFBF00;
+  --hover_text_color: #ffbf00;
   --hover_background_color: #8e82fe;
-  --focus_text_color: #FFBF00;
+  --focus_text_color: #ffbf00;
 }
 
 @theme inline {
@@ -30,7 +30,6 @@
   --font-roboto: var(--font-roboto);
   --font-arbutus: var(--font-arbutus);
   --font-ultra: var(--font-ultra);
-
 }
 
 body {
@@ -73,21 +72,19 @@ a {
   width: 150px;
   height: 150px;
   left: -75px;
-  top: -75px; 
+  top: -75px;
   /* @apply
     bg-amber-500; */
 }
 
 .banner-badge-frontmost {
-  @apply
-    flex
+  @apply flex
     items-center
     justify-center;
 }
 
 .grasphand-decor-bar {
-  @apply
-    -mt-px
+  @apply -mt-px
     relative
     -z-10
     mr-1
@@ -102,8 +99,7 @@ a {
 }
 
 svg.splat {
-  @apply
-    absolute
+  @apply absolute
     inset-0
     w-full
     h-full
@@ -153,8 +149,7 @@ svg.splat {
 }
 
 .nav-link {
-  @apply
-    sm:text-base
+  @apply sm:text-base
     md:text-lg
     lg:text-2xl
     hover:text-hover_text_color
@@ -163,8 +158,7 @@ svg.splat {
 }
 
 .nav-link-in-content {
-  @apply
-    underline
+  @apply underline
     underline-offset-3
     hover:text-hover_text_color
     hover:stroke-hover_text_color
@@ -172,8 +166,7 @@ svg.splat {
 }
 
 .nav-focus {
-  @apply
-    text-foreground_text_color
+  @apply text-foreground_text_color
     underline
     decoration-focus_text_color
     decoration-4
@@ -181,7 +174,6 @@ svg.splat {
 }
 
 .spin-group {
-
 }
 
 @keyframes spin {

@@ -48,9 +48,7 @@ export default function StorySection({
         viewport={{ once: true }}
         className="md:w-1/2 md:pl-12 md:pr-12"
       >
-        <h2 className="text-3xl font-semibold mb-4">
-          {heading}
-        </h2>
+        <h2 className="text-3xl font-semibold mb-4">{heading}</h2>
         <p className="text-lg leading-relaxed">{children}</p>
       </motion.div>
     </section>

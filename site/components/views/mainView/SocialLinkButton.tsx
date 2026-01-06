@@ -1,12 +1,12 @@
-"use client"
-import React from "react";
-import FrilledCircle from "@/components/shared/FrilledCircle";
-import { motion } from "motion/react";
+'use client';
+import React from 'react';
+import FrilledCircle from '@/components/shared/FrilledCircle';
+import { motion } from 'motion/react';
 
 export default function SocialLinkButton({
   href,
   icon,
-}:{
+}: {
   href: string;
   icon: React.ReactElement;
 }) {
@@ -21,11 +21,7 @@ export default function SocialLinkButton({
       >
         {/* Frilled circles (background, transforms together) */}
         <div className="absolute inset-0 flex items-center justify-center -z-10">
-          <FrilledCircle
-            size={boxSize}
-            backgroundColor="var(--color-main-accent)"
-            borderRadius={0}
-          >
+          <FrilledCircle size={boxSize} backgroundColor="var(--color-main-accent)" borderRadius={0}>
             <FrilledCircle
               size={boxSize - spacingIncrement}
               backgroundColor="var(--color-background)"

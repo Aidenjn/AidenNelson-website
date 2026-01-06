@@ -2,12 +2,12 @@ import Hero from '@/components/views/mainView/Hero';
 import StorySection from '@/components/views/mainView/StorySection';
 import { CustomIcon } from '@/lib/types/CustomIcon';
 import ClosingStorySection from '@/components/views/mainView/ClosingStorySection';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 export default function Home() {
   return (
     <div className="text-foreground flex-col flex items-center">
-      <div className='max-w-240'>
+      <div className="max-w-240">
         {/* Hero/Opening Section */}
         <Hero />
 
@@ -53,7 +53,9 @@ export default function Home() {
           {`In my free time I enjoy making functional ceramic objects by wheel and hand.
           Working with clay provides me a creative outlet and a different way of thinking about form and process.
           You can see my ceramic work at `}
-          <a href='https://www.ensorcelledexpressions.com' className='nav-link-in-content'>ensorcelledexpressions.com</a>
+          <a href="https://www.ensorcelledexpressions.com" className="nav-link-in-content">
+            ensorcelledexpressions.com
+          </a>
           {`.`}
         </StorySection>
 

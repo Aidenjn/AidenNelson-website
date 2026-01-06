@@ -1,6 +1,5 @@
 import { HTMLAttributes } from 'react';
 import WavyBorderImageMask from './WavyBorderImageMask';
-import WavyBorderImageBorder from './WavyBorderImageBorder';
 import { WavyShape } from '@/lib/types/WavyShapes';
 import { CustomIcon } from '@/lib/types/CustomIcon';
 
@@ -29,9 +28,8 @@ const WavyBorderImage = ({
   ...rest
 }: WavyBorderImageProps) => {
   return (
-    <div className='border-main-accent border-6 rounded-sm w-full h-full'>
-      <div className='border-background border-6 rounded-sm w-full h-full'>
-
+    <div className="border-main-accent border-6 rounded-sm w-full h-full">
+      <div className="border-background border-6 rounded-sm w-full h-full">
         <div className={`relative ${className}`} style={{ width, height, ...style }} {...rest}>
           <WavyBorderImageMask
             imageUrl={imageUrl}
@@ -41,8 +39,8 @@ const WavyBorderImage = ({
             minimumLoadingTimeMS={minimumLoadingTimeMS}
             loadingIcon={loadingIcon}
           />
-                  </div>
-         </div>
+        </div>
+      </div>
     </div>
   );
 };

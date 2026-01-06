@@ -24,7 +24,7 @@ export default function WavyBorderImageMask({
   const [status, setStatus] = useState({ loaded: false, minDone: false });
   const { loaded, minDone } = status;
 
-  const { d, viewBox, pathClass } = getWavyShapeData(shape);
+  const { viewBox } = getWavyShapeData(shape);
 
   // --- Stable clip ID to avoid SVG mismatches on client navigation ---
   const clipId = useMemo(() => {

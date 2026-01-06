@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 export default function ClosingStorySection() {
   return (
@@ -21,10 +21,7 @@ export default function ClosingStorySection() {
         className="max-w-2xl mx-auto text-lg"
       >
         {'Interested in my work or want to talk? Feel free to contact me at '}
-        <a
-          href="mailto:Aidenjn@gmail.com"
-          className="nav-link-in-content"
-        >
+        <a href="mailto:Aidenjn@gmail.com" className="nav-link-in-content">
           {'Aidenjn@gmail.com'}
         </a>
         {'.'}
