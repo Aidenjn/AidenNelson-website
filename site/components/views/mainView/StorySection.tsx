@@ -18,6 +18,7 @@ export default function StorySection({
   image_url,
   children,
   flow_left = false,
+  icon,
 }: StorySectionProps) {
   return (
     <section
@@ -32,6 +33,7 @@ export default function StorySection({
       >
         <div className="relative w-10/12 aspect-square sm:max-w-5/6 lg:max-w-3/5">
           <WavyBorderImage
+            loadingIcon={icon}
             imageUrl={image_url}
             shape={WavyShape.Square}
             disableLoadingEffect={false}

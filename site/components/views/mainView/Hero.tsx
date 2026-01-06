@@ -9,7 +9,7 @@ import FacePortrait from './FacePortrait';
 export default function Hero() {
   return (
     <section
-      className={'flex flex-col md:flex-row-reverse items-center mb-20 lg:gap-10'}
+      className={'flex flex-col md:flex-row-reverse items-center mb-20'}
     >
       <motion.div
         initial={{ opacity: 0, x: -50 }}

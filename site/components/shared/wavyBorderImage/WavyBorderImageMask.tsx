@@ -66,12 +66,6 @@ export default function WavyBorderImageMask({
     <svg className="splat" viewBox={viewBox} preserveAspectRatio="none">
       {alt && <title>{alt}</title>}
 
-      <defs>
-        <clipPath id={clipId}>
-          <path d={d} className={`splat-path ${pathClass}`} />
-        </clipPath>
-      </defs>
-
       {/* Background fill */}
       <rect width="100%" height="100%" clipPath={`url(#${clipId})`} className="fill-foreground" />
 

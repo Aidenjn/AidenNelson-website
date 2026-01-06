@@ -29,17 +29,20 @@ const WavyBorderImage = ({
   ...rest
 }: WavyBorderImageProps) => {
   return (
-    <div className={`relative ${className}`} style={{ width, height, ...style }} {...rest}>
-      <WavyBorderImageMask
-        imageUrl={imageUrl}
-        shape={shape}
-        alt={alt}
-        disableLoadingEffect={disableLoadingEffect}
-        minimumLoadingTimeMS={minimumLoadingTimeMS}
-        loadingIcon={loadingIcon}
-      />
+    <div className='border-main-accent border-6 rounded-sm w-full h-full'>
+      <div className='border-background border-6 rounded-sm w-full h-full'>
 
-      <WavyBorderImageBorder shape={shape} />
+        <div className={`relative ${className}`} style={{ width, height, ...style }} {...rest}>
+          <WavyBorderImageMask
+            imageUrl={imageUrl}
+            shape={shape}
+            alt={alt}
+            disableLoadingEffect={disableLoadingEffect}
+            minimumLoadingTimeMS={minimumLoadingTimeMS}
+            loadingIcon={loadingIcon}
+          />
+                  </div>
+         </div>
     </div>
   );
 };
