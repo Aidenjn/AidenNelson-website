@@ -105,7 +105,8 @@ svg.splat {
     h-full
     border-6
     rounded-sm
-    border-foreground;
+    border-foreground
+    bg-foreground;
 }
 
 .splat-path {

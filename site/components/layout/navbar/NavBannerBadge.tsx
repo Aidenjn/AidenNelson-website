@@ -15,7 +15,7 @@ export default function NavBannerBadge() {
           absolute
           border-6
           border-main-accent
-          bg-background
+          bg-main-accent
           z-30
           text-center
           text-3xl
@@ -32,8 +32,8 @@ export default function NavBannerBadge() {
           -translate-y-[34%]
         "
       >
-        <div className="border-6 border-background">
-          <div className="border-7 border-foreground rounded-6 p-4">
+        <div className="border-6 border-background rounded-sm bg-background">
+          <div className="border-7 border-foreground rounded-sm p-4 bg-background">
             <Link
               href={homepageLink}
               className={`${isActive ? 'underline decoration-focus_text_color decoration-6 underline-offset-5' : ''}`}

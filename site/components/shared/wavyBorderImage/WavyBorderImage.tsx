@@ -28,8 +28,8 @@ const WavyBorderImage = ({
   ...rest
 }: WavyBorderImageProps) => {
   return (
-    <div className="border-main-accent border-6 rounded-sm w-full h-full">
-      <div className="border-background border-6 rounded-sm w-full h-full">
+    <div className="border-main-accent bg-main-accent border-6 rounded-sm w-full h-full">
+      <div className="border-background bg-background border-6 rounded-sm w-full h-full">
         <div className={`relative ${className}`} style={{ width, height, ...style }} {...rest}>
           <WavyBorderImageMask
             imageUrl={imageUrl}
