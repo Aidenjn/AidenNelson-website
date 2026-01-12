@@ -18,18 +18,9 @@ export default function Home() {
           flow_left={true}
           icon={CustomIcon.Cat}
         >
-          {`I'm a software engineer with professional experience building applications used by people in their day-to-day work.
+          {`I'm a software engineer with professional experience building applications used by people in their day-to-day work, primarily in the EdTech sector.
           My experience spans frontend and backend development, testing and debugging, internal tooling, and deployment workflows.
           I focus on building systems that are reliable and maintainable for the long term, and I'm seeking opportunities to contribute to mission-driven teams working on projects that support and strengthen communities.`}
-        </StorySection>
-        <StorySection
-          image_url="/images/skye_pic.png"
-          heading="Game Developer"
-          flow_left={false}
-          icon={CustomIcon.Robot}
-        >
-          {`I've developed game software professionally, from virtual worlds, to screen adaptations of tabletop games.
-          I continue to construct games independently, exploring the medium as a powerful tool for teaching, storytelling, and shared experience.`}
         </StorySection>
         {/** UNCOMMENT THE BELOW ONCE PROJECTS PAGE IS DONE */}
         {/* <StorySection
@@ -44,10 +35,21 @@ export default function Home() {
           <Link href={'/projects'} className='nav-link-in-content'>projects portfolio</Link>
           {`.`}
         </StorySection> */}
+        {/** UNCOMMENT THE BELOW ONCE YOU HAVE TWO GAME ASSISTANT PROJECTS COMPLETED */}
+        {/* <StorySection
+          image_url="/images/skye_pic.png"
+          heading="Game Developer and Enthusiast"
+          flow_left={false}
+          icon={CustomIcon.Robot}
+        >
+          {`I've developed educational game software professionally, from virtual worlds, to screen adaptations of tabletop games.
+          I continue to construct games independently, exploring the medium as a powerful tool for teaching, storytelling, and shared experience.
+          I should also mention that I am geek for tabletop games, which has led me to produce software tools that can aide in their play. You can check out the games, game assistants, and other software I've created in my projects portfolio.`}
+        </StorySection> */}
         <StorySection
           image_url="/images/mrpurplepout.jpg"
           heading="Ceramic Artist"
-          flow_left={true}
+          flow_left={false}
           icon={CustomIcon.Triclopes}
         >
           {`In my free time I enjoy making functional ceramic objects by wheel and hand.
