@@ -191,7 +191,7 @@ svg.splat {
 }
 
 .spin-group:hover .spinner {
-  animation: spin 10s ease-out infinite;
+  animation: spin 8s linear infinite; 
 }
 
 /** WARNING: Below rules may break if google changes them for the embedded search component **/
