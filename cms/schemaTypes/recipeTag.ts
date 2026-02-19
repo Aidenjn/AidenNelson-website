@@ -1,8 +1,8 @@
 import { defineType } from 'sanity'
 
 export default defineType({
-  name: 'tag',
-  title: 'Tag',
+  name: 'recipeTag',
+  title: 'Recipe Tag',
   type: 'document',
   fields: [
     { name: 'title', type: 'string', title: 'Title' },

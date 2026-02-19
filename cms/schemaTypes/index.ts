@@ -1,7 +1,7 @@
 import recipe from './recipe'
-import tag from './tag'
+import recipeTag from './recipeTag'
 
 export const schemaTypes = [
   recipe,
-  tag,
+  recipeTag,
 ]
