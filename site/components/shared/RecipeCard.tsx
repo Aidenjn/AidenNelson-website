@@ -1,6 +1,6 @@
 'use client';
 
-import { Artwork } from '@/lib/types/SanityTypes';
+import { Recipe } from '@/lib/types/SanityTypes';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { urlFor } from '@/lib/sanity';
@@ -8,11 +8,11 @@ import WavyBorderImage from '@/components/shared/wavyBorderImage/WavyBorderImage
 import HoverOverlay from '@/components/shared/HoverOverlay';
 import React from 'react';
 
-export default function ArtworkCard({ artwork }: { artwork: Artwork }) {
+export default function RecipeCard({ recipe }: { recipe: Recipe }) {
   const imageUrlFetch: string | null = React.useMemo(() => {
-    const img = artwork.images?.[0];
+    const img = recipe.images?.[0];
     return img ? urlFor(img).width(350).height(350).url() : null;
-  }, [artwork.images]);
+  }, [recipe.images]);
 
   const imageUrl: string | undefined = imageUrlFetch ? imageUrlFetch : undefined;
 
@@ -23,10 +23,11 @@ export default function ArtworkCard({ artwork }: { artwork: Artwork }) {
       animate="rest"
       className="relative w-full bg-background rounded-xl overflow-hidden cursor-pointer"
     >
-      <Link href={`/gallery/${artwork.slug.current}`}>
+      <h1>Tata</h1>
+      <Link href={`/gallery/${recipe.slug.current}`}>
         <div className="relative w-full aspect-square">
           <WavyBorderImage imageUrl={imageUrl} />
-          <HoverOverlay title={artwork.title} />
+          <HoverOverlay title={recipe.title} />
         </div>
       </Link>
     </motion.div>
