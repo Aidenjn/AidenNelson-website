@@ -1,7 +1,7 @@
-import artwork from './artwork'
+import recipe from './recipe'
 import tag from './tag'
 
 export const schemaTypes = [
-  artwork,
+  recipe,
   tag,
 ]

@@ -8,5 +8,6 @@ export default defineType({
     { name: 'title', type: 'string', title: 'Title' },
     { name: 'plural_title', type: 'string', title: 'Plural Title' },
     { name: 'slug', type: 'slug', options: { source: 'plural_title' } },
+    { name: 'image', type: 'image'}
   ]
 })

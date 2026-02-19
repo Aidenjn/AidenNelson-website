@@ -5,9 +5,9 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'Ensorcelled Expressions CMS',
+  title: 'Aiden CMS',
 
-  projectId: 'cfvjakic',
+  projectId: 'isldq6jq',
   dataset: 'production',
 
   plugins: [
