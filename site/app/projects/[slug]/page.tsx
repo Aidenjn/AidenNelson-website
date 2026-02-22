@@ -1,6 +1,6 @@
 import { client } from '@/lib/sanity';
 import { notFound } from 'next/navigation';
-import Carousel from '@/components/views/singleArtView/carousel/Carousel';
+import Carousel from '@/components/views/singleRecipeView/carousel/Carousel';
 import PageHeading from '@/components/shared/PageHeading';
 import { Recipe } from '@/lib/types/SanityTypes';
 import { getCategoriesFromTags } from '@/lib/utils/categories/getCategoriesFromTags';

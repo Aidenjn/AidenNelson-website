@@ -4,8 +4,7 @@ import { CustomIcon } from '@/lib/types/CustomIcon';
 import CustomIconSVG from './CustomIconSVG';
 import { motion } from 'framer-motion';
 import { Category } from '@/lib/types/Category';
-import GeneratedArtPieceDescriptionBlock from '../views/singleArtView/GeneratedArtPieceDescriptionBlock';
-import CategoryIconLinks from '../views/singleArtView/CategoryIconLinks';
+import CategoryIconLinks from '../views/singleRecipeView/CategoryIconLinks';
 
 export default function PageHeading({
   titleText,
@@ -54,13 +53,6 @@ export default function PageHeading({
         <motion.div variants={itemVariants} className="mt-4 mb-2 text-foreground max-w-2xl mx-auto">
           <CategoryIconLinks categories={categories} />
         </motion.div>
-      )}
-
-      {/* Create a description for the piece from the categories if there is no description */}
-      {categories && !descriptionText && (
-        <motion.p variants={itemVariants} className="mt-4 mb-2 text-foreground max-w-2xl mx-auto">
-          <GeneratedArtPieceDescriptionBlock pieceCategories={categories} />
-        </motion.p>
       )}
 
       {/* Show the description if there is one */}

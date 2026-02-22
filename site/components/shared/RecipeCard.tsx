@@ -24,7 +24,7 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
       className="relative w-full bg-background rounded-xl overflow-hidden cursor-pointer"
     >
       <h1>Tata</h1>
-      <Link href={`/gallery/${recipe.slug.current}`}>
+      <Link href={`/recipes/${recipe.slug.current}`}>
         <div className="relative w-full aspect-square">
           <WavyBorderImage imageUrl={imageUrl} />
           <HoverOverlay title={recipe.title} />

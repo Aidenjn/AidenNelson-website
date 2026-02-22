@@ -22,7 +22,7 @@ export interface CookingTime {
 export interface Ingredient {
   _key: string;
   _type: 'ingredient';
-  name: string;
+  ingredient: string;
   quantity: number;
   unit: Unit;
 }
