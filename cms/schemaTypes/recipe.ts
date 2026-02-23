@@ -146,6 +146,7 @@ export default defineType({
                   { title: 'Milliliter (ml)', value: 'ml' },
                   { title: 'Can', value: 'can' },
                   { title: 'Bushel', value: 'bushel' },
+                  { title: 'Stick', value: 'stick' },
                 ],
                 layout: 'dropdown',
               },
