@@ -1,12 +1,10 @@
-import { client } from '@/lib/sanity';
-import ProjectGrid from '@/components/shared/ProjectGrid';
+// import { client } from '@/lib/sanity';
 
-export default async function GalleryPage() {
-  const artworks = await client.fetch(`*[_type == "artwork"] | order(dateCreated desc)`);
+export default async function ProjectsPage() {
 
   return (
     <div>
-      <ProjectGrid projects={artworks} />
+      <h1>Under construction 🏗️</h1>
     </div>
   );
 }

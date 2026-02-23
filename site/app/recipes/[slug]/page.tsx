@@ -1,4 +1,4 @@
-import { client, urlFor } from '@/lib/sanity';
+import { client } from '@/lib/sanity';
 import { notFound } from 'next/navigation';
 import Carousel from '@/components/views/singleRecipeView/carousel/Carousel';
 import PageHeading from '@/components/shared/PageHeading';
@@ -60,18 +60,24 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
       <PageHeading titleText={recipe.title} categories={getCategoriesFromTags(recipe.tags)} />
       <div className="mt-4 mb-2 text-foreground max-w-2xl mx-auto">
         {/** Description */}
-        {recipe.description && <div className='pb-6'><PortableText value={recipe.description} /></div>}
+        {recipe.description && (
+          <div className="pb-6">
+            <PortableText value={recipe.description} />
+          </div>
+        )}
 
         {/** Showcase images */}
-        {recipe.image && <div className="mx-auto max-w-200">
-          <Carousel images={[recipe.image]} />
-        </div>}
+        {recipe.image && (
+          <div className="mx-auto max-w-200">
+            <Carousel images={[recipe.image]} />
+          </div>
+        )}
 
         {/** Ingredients list */}
-        <IngredientsList ingredients={recipe.ingredients} cookMode={cookMode}/>
+        <IngredientsList ingredients={recipe.ingredients} cookMode={cookMode} />
 
         {/** Preparation steps list */}
-        <PreparationList steps={recipe.steps} cookMode={cookMode}/>
+        <PreparationList steps={recipe.steps} cookMode={cookMode} />
       </div>
     </main>
   );

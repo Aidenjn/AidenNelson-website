@@ -6,9 +6,9 @@ import WavyBorderImage from '@/components/shared/wavyBorderImage/WavyBorderImage
 import HoverOverlay from '@/components/shared/HoverOverlay';
 
 export interface IPictureCard {
-  text: string,
-  link: string,
-  image?: string,
+  text: string;
+  link: string;
+  image?: string;
 }
 
 export default function PictureCard({ args }: { args: IPictureCard }) {

@@ -2,13 +2,12 @@ import { Ingredient } from '@/lib/types/SanityTypes';
 import AddToGroceryListButton from './AddToGroceryListButton';
 import FancyCheckBox from '@/components/shared/FancyCheckBox';
 
+function numberToPrettyString(num: number): string {
+  const wholeNum: number = Math.floor(num);
+  const decimalNum: number = num - wholeNum;
 
-function numberToPrettyString(num:number):string {
-  const wholeNum:number = Math.floor(num);
-  const decimalNum:number = num - wholeNum;
-
-  const wholeNumStr:string = wholeNum === 0 ? '' : wholeNum.toString();
-  let decimalNumStr:string = decimalNum.toString().slice(1, 4);
+  const wholeNumStr: string = wholeNum === 0 ? '' : wholeNum.toString();
+  let decimalNumStr: string = decimalNum.toString().slice(1, 4);
 
   // TODO: Copy more fractions to here.
 
@@ -24,7 +23,7 @@ function numberToPrettyString(num:number):string {
     decimalNumStr = '⅙';
   } else if (decimalNumStr === '.2') {
     decimalNumStr = '⅕';
-    } else if (decimalNumStr === '.25') {
+  } else if (decimalNumStr === '.25') {
     decimalNumStr = '¼';
   } else if (decimalNumStr === '.333') {
     decimalNumStr = '⅓';
@@ -55,12 +54,12 @@ function numberToPrettyString(num:number):string {
   } else {
     decimalNumStr = ` ${decimalNumStr} `;
   }
-  
-  return `${wholeNumStr}${decimalNumStr}`
+
+  return `${wholeNumStr}${decimalNumStr}`;
 }
 
-export function getIngredientString(ingredient:Ingredient):string {
-  let ingredientString:string = `${numberToPrettyString(ingredient.quantity)}`;
+export function getIngredientString(ingredient: Ingredient): string {
+  let ingredientString: string = `${numberToPrettyString(ingredient.quantity)}`;
   if (ingredient.unit) ingredientString += `${ingredient.unit} `;
   ingredientString += ingredient.ingredient;
   return ingredientString;
@@ -70,24 +69,26 @@ export default function IngredientsListItem({
   ingredient,
   cookMode,
 }: {
-  ingredient: Ingredient,
-  cookMode: boolean,
+  ingredient: Ingredient;
+  cookMode: boolean;
 }) {
   return (
-    <li className='mb-2'>
+    <li className="mb-2">
       <div className="flex w-full">
-        <div className='w-5 text-center mr-4'>
-          { cookMode && <FancyCheckBox/> }
-          { !cookMode && <AddToGroceryListButton ingredientString={getIngredientString(ingredient)}/> }
+        <div className="w-5 text-center mr-4">
+          {cookMode && <FancyCheckBox />}
+          {!cookMode && (
+            <AddToGroceryListButton ingredientString={getIngredientString(ingredient)} />
+          )}
         </div>
         <div>
-          <span className='font-roboto'>
-            <span className='font-bold'>{`${numberToPrettyString(ingredient.quantity)}`}</span>
+          <span className="font-roboto">
+            <span className="font-bold">{`${numberToPrettyString(ingredient.quantity)}`}</span>
             {ingredient.unit && <span>{`${ingredient.unit} `}</span>}
             <span>{`${ingredient.ingredient}`}</span>
           </span>
         </div>
       </div>
     </li>
-  )
+  );
 }

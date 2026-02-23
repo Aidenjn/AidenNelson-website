@@ -1,8 +1,8 @@
-import PageHeading from "@/components/shared/PageHeading";
-import { client } from "@/lib/sanity";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { FaUtensils } from "react-icons/fa";
+import PageHeading from '@/components/shared/PageHeading';
+import { client } from '@/lib/sanity';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { FaUtensils } from 'react-icons/fa';
 
 // GROQ query for recipes
 const recipes_query = `
@@ -14,36 +14,36 @@ const recipes_query = `
 `;
 
 type recipeIndexItem = {
-  _id: string
+  _id: string;
   title: string;
-  slug:{ current: string };
-}
+  slug: { current: string };
+};
 
 type alphabeticRecipeSection = {
   character: string;
-  recipes: recipeIndexItem[]
-}
+  recipes: recipeIndexItem[];
+};
 
 // We assume recipes are already sorted alphabetically.
 // This function organizes them into sections by first character.
-function organizeRecipes(recipes:recipeIndexItem[]):alphabeticRecipeSection[] {
-  const rSections:alphabeticRecipeSection[] = [];
-  let currentLetter:string = 'A';
+function organizeRecipes(recipes: recipeIndexItem[]): alphabeticRecipeSection[] {
+  const rSections: alphabeticRecipeSection[] = [];
+  let currentLetter: string = 'A';
 
   recipes.forEach((recipe) => {
-    let recipeLetter:string = recipe.title === undefined ? recipe.title[0] : currentLetter;
+    const recipeLetter: string = recipe.title === undefined ? recipe.title[0] : currentLetter;
     if (recipeLetter === currentLetter) {
       // If we don't have any sections, or the current section doesn't match to the recipe,
       // Create a new section with that recipe's first letter.
-      if (rSections.length === 0 || (rSections[rSections.length]?.character !== recipe.title[0])) {
-        const newSection:alphabeticRecipeSection = {
+      if (rSections.length === 0 || rSections[rSections.length]?.character !== recipe.title[0]) {
+        const newSection: alphabeticRecipeSection = {
           character: recipeLetter,
-          recipes: [recipe]
-        }
+          recipes: [recipe],
+        };
         rSections.push(newSection);
         currentLetter = recipeLetter;
       } else {
-        rSections[rSections.length - 1]?.recipes.push(recipe)
+        rSections[rSections.length - 1]?.recipes.push(recipe);
       }
     }
   });
@@ -61,7 +61,7 @@ export default async function RecipeIndexPage() {
 
   return (
     <div>
-      <PageHeading titleText="Recipe Index"/>
+      <PageHeading titleText="Recipe Index" />
       <ol>
         {recipeSections.map((recipeSection) => (
           <li key={recipeSection.character}>
@@ -70,7 +70,7 @@ export default async function RecipeIndexPage() {
               {recipeSection.recipes.map((recipe) => (
                 <li key={recipe._id}>
                   <Link href={`/recipes/${recipe.slug.current}`}>
-                    <FaUtensils className="inline"/>
+                    <FaUtensils className="inline" />
                     <span>{recipe.title}</span>
                   </Link>
                 </li>
@@ -80,5 +80,5 @@ export default async function RecipeIndexPage() {
         ))}
       </ol>
     </div>
-  )
+  );
 }

@@ -4,21 +4,21 @@ import { FaBasketShopping } from 'react-icons/fa6';
 import FancyButton from '@/components/shared/FancyButton';
 import { getIngredientString } from './IngredientsListItem';
 
-function getIngredientStrings(ingredients:Ingredient[]):string[] {
+function getIngredientStrings(ingredients: Ingredient[]): string[] {
   return ingredients.map((ingredient) => getIngredientString(ingredient));
 }
 
 /**
  * Generates an Apple Shortcuts URL scheme href for adding multiple ingredients to a grocery list.
  * Ingredients are joined with newlines so the shortcut can split them.
- * 
+ *
  * @param ingredients - Array of ingredient strings (e.g., ["4 Large eggs", "2 cups flour"])
  * @param shortcutName - The exact name of the iOS Shortcut to run (default: "Add Multiple To Grocery List")
  * @returns The complete shortcuts:// URL
  */
 function generateMultiShortcutsHref(
   ingredients: string[],
-  shortcutName: string = "Add Multiple To Grocery List"
+  shortcutName: string = 'Add Multiple To Grocery List',
 ): string {
   // Join ingredients with newline character
   const combinedText = ingredients.join('\n');
@@ -32,25 +32,27 @@ export default function IngredientsList({
   ingredients,
   cookMode,
 }: {
-  ingredients: Ingredient[],
-  cookMode: boolean,
+  ingredients: Ingredient[];
+  cookMode: boolean;
 }) {
-  const addAllIngredientsLink:string = generateMultiShortcutsHref(getIngredientStrings(ingredients));
+  const addAllIngredientsLink: string = generateMultiShortcutsHref(
+    getIngredientStrings(ingredients),
+  );
   return (
-    <div className='mb-10'>
+    <div className="mb-10">
       <div className="flex justify-start w-full mb-4">
         <a href={addAllIngredientsLink}>
-          <FancyButton className='bg-foreground border border-foreground rounded-full px-2 py-2 align-middle mr-2 float-left'>
-            <FaBasketShopping className='text-2xl'/>
+          <FancyButton className="bg-foreground border border-foreground rounded-full px-2 py-2 align-middle mr-2 float-left">
+            <FaBasketShopping className="text-2xl" />
           </FancyButton>
         </a>
-        <h2 className='text-lg mt-2'>Ingredients</h2>
+        <h2 className="text-lg mt-2">Ingredients</h2>
       </div>
-      <ul className='ml-2'>
+      <ul className="ml-2">
         {ingredients.map((ingredient) => (
-          <IngredientsListItem ingredient={ingredient} cookMode={cookMode} key={ingredient._key}/>
+          <IngredientsListItem ingredient={ingredient} cookMode={cookMode} key={ingredient._key} />
         ))}
       </ul>
     </div>
-  )
+  );
 }

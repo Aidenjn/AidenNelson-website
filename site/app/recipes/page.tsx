@@ -12,15 +12,21 @@ export default async function RecipesPage() {
       ></PageHeading>
       <div className="mt-4 mb-4 text-foreground max-w-2xl mx-auto">
         <div className="flex w-full gap-4 mb-6">
-          <RecipeBookLink path='/recipes/categories'>
-            <span><FaPizzaSlice className='inline mr-4 text-2xl'/>{'Browse by Category'}</span>
+          <RecipeBookLink path="/recipes/categories">
+            <span>
+              <FaPizzaSlice className="inline mr-4 text-2xl" />
+              {'Browse by Category'}
+            </span>
           </RecipeBookLink>
-          <RecipeBookLink path='recipes/index'>
-            <span><FaScroll className='inline mr-4 text-2xl'/>{'See Complete Index'}</span>
+          <RecipeBookLink path="recipes/index">
+            <span>
+              <FaScroll className="inline mr-4 text-2xl" />
+              {'See Complete Index'}
+            </span>
           </RecipeBookLink>
         </div>
         <div className="flex w-full justify-center">
-          <RecipeSearchBar/>
+          <RecipeSearchBar />
         </div>
       </div>
     </div>

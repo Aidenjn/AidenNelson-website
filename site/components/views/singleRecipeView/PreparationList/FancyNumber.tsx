@@ -1,10 +1,7 @@
-export default function FancyNumber({
-  num,
-}: {
-  num: number
-}) {
+export default function FancyNumber({ num }: { num: number }) {
   return (
-    <div className="
+    <div
+      className="
       flex
       justify-center
       align-middle
@@ -12,8 +9,9 @@ export default function FancyNumber({
       w-7
       h-7
       border-2
-    ">
+    "
+    >
       {`${num}`}
     </div>
-  )
+  );
 }
