@@ -11,10 +11,12 @@ export default function IngredientsList({
   cookMode: boolean,
 }) {
   return (
-    <div className='mb-5'>
-      <div className="flex w-full mb-4">
-        <FancyButton className='bg-foreground border border-foreground rounded-full px-1 py-1 align-middle'><FaBasketShopping className='text-2xl'/></FancyButton>
-        <h2 className='text-lg align-middle'>Ingredients</h2>
+    <div className='mb-10'>
+      <div className="flex justify-start w-full mb-4">
+        <FancyButton className='bg-foreground border border-foreground rounded-full px-2 py-2 align-middle mr-2 float-left'>
+          <FaBasketShopping className='text-2xl'/>
+        </FancyButton>
+        <h2 className='text-lg mt-2'>Ingredients</h2>
       </div>
       <ul className='ml-2'>
         {ingredients.map((ingredient) => (

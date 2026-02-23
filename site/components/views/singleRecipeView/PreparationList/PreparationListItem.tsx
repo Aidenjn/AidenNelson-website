@@ -16,13 +16,13 @@ export default function PreparationListItem({
   const imageUrl: string | undefined = step.image ? urlFor(step.image).width(800).height(600).url() : undefined;
 
   return (
-    <li>
-      <div className="flex w-full">
-        <div className='w-5 text-center mr-2'>
+    <li className='mb-4'>
+      <div className="flex w-full mb-6">
+        <div className='mr-2 text-right'>
           { cookMode && <FancyCheckBox/> }
           { !cookMode && <FancyNumber num={num + 1}/> }
         </div>
-        <div>
+        <div className=''>
           <PortableText value={step.instruction}/>
           { step.image &&
             <image
@@ -31,9 +31,14 @@ export default function PreparationListItem({
               height="100%"
             />
           }
-          {step.note && <PortableText value={step.note}/>}
+          {step.note &&
+            <div className='italic text-sm mt-1'>
+              <PortableText value={step.note}/>
+            </div>
+          }
         </div>
       </div>
+      {/* <div className='w-full border-1 border-dotted'/> */}
     </li>
   )
 }

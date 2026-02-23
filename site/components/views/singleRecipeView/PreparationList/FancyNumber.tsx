@@ -4,6 +4,16 @@ export default function FancyNumber({
   num: number
 }) {
   return (
-    <span className="mr-2">{`${num}`}</span>
+    <div className="
+      flex
+      justify-center
+      align-middle
+      mr-2
+      w-7
+      h-7
+      border-2
+    ">
+      {`${num}`}
+    </div>
   )
 }

@@ -60,10 +60,10 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
       <PageHeading titleText={recipe.title} categories={getCategoriesFromTags(recipe.tags)} />
       <div className="mt-4 mb-2 text-foreground max-w-2xl mx-auto">
         {/** Description */}
-        {recipe.description && <PortableText value={recipe.description} />}
+        {recipe.description && <div className='pb-6'><PortableText value={recipe.description} /></div>}
 
         {/** Showcase images */}
-        {recipe.image && <div className="mx-auto pt-6 max-w-200">
+        {recipe.image && <div className="mx-auto max-w-200">
           <Carousel images={[recipe.image]} />
         </div>}
 
