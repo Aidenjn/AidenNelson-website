@@ -75,7 +75,7 @@ export default function IngredientsListItem({
   return (
     <li className="mb-2">
       <div className="flex w-full">
-        <div className="w-5 text-center mr-4">
+        <div className="w-5 text-center mr-6">
           {cookMode && <FancyCheckBox />}
           {!cookMode && (
             <AddToGroceryListButton ingredientString={getIngredientString(ingredient)} />

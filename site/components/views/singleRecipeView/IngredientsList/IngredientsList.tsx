@@ -42,11 +42,11 @@ export default function IngredientsList({
     <div className="mb-10">
       <div className="flex justify-start w-full mb-4">
         <a href={addAllIngredientsLink}>
-          <FancyButton className="bg-foreground border border-foreground rounded-full px-2 py-2 align-middle mr-2 float-left">
+          <FancyButton className="bg-foreground border border-foreground rounded-full px-2 py-2 align-middle mr-3 float-left">
             <FaBasketShopping className="text-2xl" />
           </FancyButton>
         </a>
-        <h2 className="text-lg mt-2">Ingredients</h2>
+        <h2 className="text-2xl mt-1">Ingredients</h2>
       </div>
       <ul className="ml-2">
         {ingredients.map((ingredient) => (

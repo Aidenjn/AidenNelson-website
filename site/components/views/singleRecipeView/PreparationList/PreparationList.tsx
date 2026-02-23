@@ -11,9 +11,9 @@ export default function PreparationList({
 }) {
   return (
     <div className="mb-5">
-      <div className="mb-6 ml-2">
-        <FaKitchenSet className="inline mr-2 text-4xl" />
-        <h2 className="inline text-lg">Preparation</h2>
+      <div className="mb-4">
+        <FaKitchenSet className="inline ml-1 mr-3 text-4xl mb-2" />
+        <h2 className="inline text-2xl">Preparation</h2>
       </div>
 
       {/* <div className='w-full border-1 border-dotted mb-4'/> */}
