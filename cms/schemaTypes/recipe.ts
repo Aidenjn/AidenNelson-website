@@ -72,11 +72,10 @@ export default defineType({
     }),
 
     defineField({
-      name: 'images',
-      title: 'Images',
-      type: 'array',
-      of: [{ type: 'image', options: { hotspot: true } }],
-      validation: (Rule) => Rule.min(1).error('At least one image is required'),
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: { hotspot: true },
     }),
 
     defineField({
@@ -197,13 +196,27 @@ export default defineType({
                   },
                 },
               ],
-              validation: (Rule) => Rule.required(),
             },
             {
               name: 'note',
               title: 'Note (optional)',
-              type: 'text',
               description: 'A helpful tip or note for this step',
+              type: 'array',
+              of: [
+                {
+                  type: 'block',
+                  marks: {
+                    annotations: [
+                      {
+                        name: 'link',
+                        type: 'object',
+                        title: 'Link',
+                        fields: [{ name: 'href', type: 'url', title: 'URL' }],
+                      },
+                    ],
+                  },
+                },
+              ],
             },
             {
               name: 'image',
@@ -215,16 +228,14 @@ export default defineType({
           preview: {
             select: {
               instruction: 'instruction',
-              note: 'note',
             },
-            prepare({ instruction, note }) {
+            prepare({ instruction }) {
               const text = instruction
                 ?.map((block: { children: any[] }) => block.children?.map((child: { text: any }) => child.text).join(''))
                 .join(' ')
                 .slice(0, 50) || 'No instruction'
-              const suffix = note ? ` — ${note.slice(0, 30)}...` : ''
               return {
-                title: text + (text.length > 50 ? '...' : '') + suffix,
+                title: text + (text.length > 50 ? '...' : ''),
               }
             },
           },
