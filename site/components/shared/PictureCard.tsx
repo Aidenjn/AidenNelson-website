@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import WavyBorderImage from '@/components/shared/wavyBorderImage/WavyBorderImage';
-import HoverOverlay from '@/components/shared/HoverOverlay';
+import BannerOverlay from '@/components/shared/BannerOverlay';
 
 export interface IPictureCard {
   text: string;
@@ -23,7 +23,7 @@ export default function PictureCard({ args }: { args: IPictureCard }) {
       <Link href={`${args.link}`}>
         <div className="relative w-full aspect-square">
           <WavyBorderImage imageUrl={args.image} />
-          <HoverOverlay title={args.text} />
+          <BannerOverlay title={args.text} />
         </div>
       </Link>
     </motion.div>
