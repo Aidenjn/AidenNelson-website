@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer className="static w-full mb-5 z-50 mt-auto pointer-events-none ">
+    <footer className="static w-full mb-25 z-50 mt-auto pointer-events-none ">
       {/* <SocialLinks/> */}
     </footer>
   );

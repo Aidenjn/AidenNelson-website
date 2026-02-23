@@ -4,7 +4,7 @@ export interface Recipe {
   title: string;
   slug: SanitySlug;
   description?: PortableTextBlock[];
-  images: SanityImage[];
+  image: SanityImage;
   cookingTime?: CookingTime;
   ingredients: Ingredient[];
   steps: RecipeStep[];
@@ -33,7 +33,7 @@ export interface RecipeStep {
   _key: string;
   _type: 'step';
   instruction: PortableTextBlock[];
-  note?: string;
+  note?: PortableTextBlock[];
   image?: SanityImage;
 }
 
@@ -62,6 +62,9 @@ export interface SanityImage {
 
 export interface Tag {
   _id: string;
+  title: string;
+  plural_title: string;
+  image: SanityImage;
   slug: SanitySlug;
 }
 

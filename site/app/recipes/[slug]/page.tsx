@@ -1,10 +1,12 @@
-import { client } from '@/lib/sanity';
+import { client, urlFor } from '@/lib/sanity';
 import { notFound } from 'next/navigation';
 import Carousel from '@/components/views/singleRecipeView/carousel/Carousel';
 import PageHeading from '@/components/shared/PageHeading';
 import { Recipe } from '@/lib/types/SanityTypes';
 import { getCategoriesFromTags } from '@/lib/utils/categories/getCategoriesFromTags';
 import { PortableText } from '@portabletext/react';
+import IngredientsList from '@/components/views/singleRecipeView/IngredientsList/IngredientsList';
+import PreparationList from '@/components/views/singleRecipeView/PreparationList/PreparationList';
 
 // GROQ query for one recipe
 const query = `
@@ -14,10 +16,7 @@ const query = `
     title,
     slug,
     description,
-    images[]{
-      ...,
-      asset->
-    },
+    image,
     cookingTime,
     ingredients[]{
       _key,
@@ -53,7 +52,8 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
   const recipe: Recipe = await client.fetch(query, { slug });
 
   if (!recipe) notFound();
-  // console.log(recipe);
+
+  const cookMode: boolean = false;
 
   return (
     <main>
@@ -63,27 +63,15 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
         {recipe.description && <PortableText value={recipe.description} />}
 
         {/** Showcase images */}
-        <div className="mx-auto pt-6 max-w-200">
-          <Carousel images={recipe.images} />
-        </div>
+        {recipe.image && <div className="mx-auto pt-6 max-w-200">
+          <Carousel images={[recipe.image]} />
+        </div>}
 
-        <h2>Ingredients</h2>
-        <ul>
-          {recipe.ingredients.map((ingredient) => (
-            <li key={ingredient.ingredient}>
-              {`${ingredient.quantity} ${ingredient.unit} ${ingredient.ingredient}`}
-            </li>
-          ))}
-        </ul>
+        {/** Ingredients list */}
+        <IngredientsList ingredients={recipe.ingredients} cookMode={cookMode}/>
 
-        <h2>Preparation</h2>
-        <ol>
-          {recipe.steps.map((step) => (
-            <li key={step._key}>
-              <PortableText value={step.instruction} />
-            </li>
-          ))}
-        </ol>
+        {/** Preparation steps list */}
+        <PreparationList steps={recipe.steps} cookMode={cookMode}/>
       </div>
     </main>
   );

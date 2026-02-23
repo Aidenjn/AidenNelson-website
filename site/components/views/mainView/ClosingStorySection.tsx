@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function ClosingStorySection() {
   return (
-    <section className="text-center pt-10 pb-20">
+    <section className="text-center pt-10">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

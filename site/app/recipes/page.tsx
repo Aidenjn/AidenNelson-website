@@ -1,17 +1,28 @@
-import { client } from '@/lib/sanity';
-import RecipeGrid from '@/components/shared/RecipeGrid';
 import PageHeading from '@/components/shared/PageHeading';
+import RecipeSearchBar from '@/components/views/recipePageView/RecipeSearchBar';
+import RecipeBookLink from '@/components/views/recipePageView/RecipeBookLink';
+import { FaScroll, FaPizzaSlice } from 'react-icons/fa';
 
-export default async function GalleryPage() {
-  const recipes = await client.fetch(`*[_type == "recipe"] | order(title desc)`);
-
+export default async function RecipesPage() {
   return (
     <div>
       <PageHeading
         titleText="Cook Book"
-        descriptionText="Welcome to my cook book! Here I store the recipes of meals I have eaten and want to eat again. You can browse these recipes by typing something in the search bar below. You can also browse by scrolling lists of recipes for specific categories of food. To view these lists, click on the button displayed below the search bar. Happy cookin’!"
+        descriptionText="Welcome to my cook book! Here I store recipes of meals I have eaten and want to eat again."
       ></PageHeading>
-      <RecipeGrid projects={recipes} />
+      <div className="mt-4 mb-4 text-foreground max-w-2xl mx-auto">
+        <div className="flex w-full gap-4 mb-6">
+          <RecipeBookLink path='/recipes/categories'>
+            <span><FaPizzaSlice className='inline mr-4 text-2xl'/>{'Browse by Category'}</span>
+          </RecipeBookLink>
+          <RecipeBookLink path='recipes/index'>
+            <span><FaScroll className='inline mr-4 text-2xl'/>{'See Complete Index'}</span>
+          </RecipeBookLink>
+        </div>
+        <div className="flex w-full justify-center">
+          <RecipeSearchBar/>
+        </div>
+      </div>
     </div>
   );
 }
