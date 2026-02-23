@@ -59,6 +59,13 @@ function numberToPrettyString(num:number):string {
   return `${wholeNumStr}${decimalNumStr}`
 }
 
+export function getIngredientString(ingredient:Ingredient):string {
+  let ingredientString:string = `${numberToPrettyString(ingredient.quantity)}`;
+  if (ingredient.unit) ingredientString += `${ingredient.unit} `;
+  ingredientString += ingredient.ingredient;
+  return ingredientString;
+}
+
 export default function IngredientsListItem({
   ingredient,
   cookMode,
@@ -66,13 +73,12 @@ export default function IngredientsListItem({
   ingredient: Ingredient,
   cookMode: boolean,
 }) {
-  // Logic
   return (
     <li className='mb-2'>
       <div className="flex w-full">
         <div className='w-5 text-center mr-4'>
           { cookMode && <FancyCheckBox/> }
-          { !cookMode && <AddToGroceryListButton ingredient={ingredient}/> }
+          { !cookMode && <AddToGroceryListButton ingredientString={getIngredientString(ingredient)}/> }
         </div>
         <div>
           <span className='font-roboto'>
