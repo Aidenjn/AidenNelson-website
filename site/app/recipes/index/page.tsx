@@ -31,7 +31,7 @@ function organizeRecipes(recipes: recipeIndexItem[]): alphabeticRecipeSection[] 
   let currentLetter: string = 'A';
 
   recipes.forEach((recipe) => {
-    const recipeLetter: string = (recipe.title === undefined ?  currentLetter : recipe.title[0])!;
+    const recipeLetter: string = (recipe.title === undefined ? currentLetter : recipe.title[0])!;
 
     // If we don't have any sections, or the current section doesn't match to the recipe,
     // Create a new section with that recipe's first letter.
@@ -61,16 +61,21 @@ export default async function RecipeIndexPage() {
   return (
     <div>
       <PageHeading titleText="Recipe Index" />
-      <ol className='mt-4 w-full'>
+      <ol className="mt-4 w-full">
         {recipeSections.map((recipeSection) => (
-          <li key={recipeSection.character} className='mb-4'>
-            <h2 className="mb-2 border-b-2 border-background w-full text-main-accent text-4xl">{recipeSection.character}</h2>
-            <div className='w-full border border-dotted mb-2'/>
+          <li key={recipeSection.character} className="mb-4">
+            <h2 className="mb-2 border-b-2 border-background w-full text-main-accent text-4xl">
+              {recipeSection.character}
+            </h2>
+            <div className="w-full border border-dotted mb-2" />
 
             <ol className="mb-4">
               {recipeSection.recipes.map((recipe) => (
                 <li key={recipe._id}>
-                  <Link href={`/recipes/${recipe.slug.current}`} className='nav-link-in-content text-foreground'>
+                  <Link
+                    href={`/recipes/${recipe.slug.current}`}
+                    className="nav-link-in-content text-foreground"
+                  >
                     <FaUtensils className="inline mr-4" />
                     <span>{recipe.title}</span>
                   </Link>

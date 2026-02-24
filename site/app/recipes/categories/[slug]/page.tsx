@@ -39,7 +39,9 @@ export default async function RecipeCategoryPage({
   const { slug } = await params;
 
   // Now slug is available. Make queries using it.
-  const categoryTitle: CategoryTitle | undefined = await client.fetch(category_title_query, { slug });
+  const categoryTitle: CategoryTitle | undefined = await client.fetch(category_title_query, {
+    slug,
+  });
   const recipes: RecipeCardInfo[] | undefined = await client.fetch(recipes_query, { slug });
 
   console.log('slug: ', slug);
