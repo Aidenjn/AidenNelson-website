@@ -48,6 +48,13 @@ export default defineType({
     }),
 
     defineField({
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: { hotspot: true },
+    }),
+
+    defineField({
       name: 'serving',
       title: 'Servings',
       type: 'number',
@@ -69,13 +76,6 @@ export default defineType({
       type: 'number',
       description: 'Time to cook the recipe',
       validation: (Rule) => Rule.min(0).integer(),
-    }),
-
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      options: { hotspot: true },
     }),
 
     defineField({

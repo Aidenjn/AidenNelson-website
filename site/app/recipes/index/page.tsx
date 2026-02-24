@@ -10,7 +10,7 @@ const recipes_query = `
     _id,
     title,
     slug,
-  } | order(title desc)
+  } | order(title asc)
 `;
 
 type recipeIndexItem = {
@@ -31,20 +31,19 @@ function organizeRecipes(recipes: recipeIndexItem[]): alphabeticRecipeSection[] 
   let currentLetter: string = 'A';
 
   recipes.forEach((recipe) => {
-    const recipeLetter: string = recipe.title === undefined ? recipe.title[0] : currentLetter;
-    if (recipeLetter === currentLetter) {
-      // If we don't have any sections, or the current section doesn't match to the recipe,
-      // Create a new section with that recipe's first letter.
-      if (rSections.length === 0 || rSections[rSections.length]?.character !== recipe.title[0]) {
-        const newSection: alphabeticRecipeSection = {
-          character: recipeLetter,
-          recipes: [recipe],
-        };
-        rSections.push(newSection);
-        currentLetter = recipeLetter;
-      } else {
-        rSections[rSections.length - 1]?.recipes.push(recipe);
-      }
+    const recipeLetter: string = (recipe.title === undefined ?  currentLetter : recipe.title[0])!;
+
+    // If we don't have any sections, or the current section doesn't match to the recipe,
+    // Create a new section with that recipe's first letter.
+    if (rSections.length === 0 || currentLetter !== recipeLetter) {
+      const newSection: alphabeticRecipeSection = {
+        character: recipeLetter,
+        recipes: [recipe],
+      };
+      rSections.push(newSection);
+      currentLetter = recipeLetter;
+    } else {
+      rSections[rSections.length - 1]?.recipes.push(recipe);
     }
   });
 
@@ -62,15 +61,17 @@ export default async function RecipeIndexPage() {
   return (
     <div>
       <PageHeading titleText="Recipe Index" />
-      <ol>
+      <ol className='mt-4 w-full'>
         {recipeSections.map((recipeSection) => (
-          <li key={recipeSection.character}>
-            <h2 className="mb-2 border-b-2 border-background w-full">{recipeSection.character}</h2>
+          <li key={recipeSection.character} className='mb-4'>
+            <h2 className="mb-2 border-b-2 border-background w-full text-main-accent text-4xl">{recipeSection.character}</h2>
+            <div className='w-full border border-dotted mb-2'/>
+
             <ol className="mb-4">
               {recipeSection.recipes.map((recipe) => (
                 <li key={recipe._id}>
-                  <Link href={`/recipes/${recipe.slug.current}`}>
-                    <FaUtensils className="inline" />
+                  <Link href={`/recipes/${recipe.slug.current}`} className='nav-link-in-content text-foreground'>
+                    <FaUtensils className="inline mr-4" />
                     <span>{recipe.title}</span>
                   </Link>
                 </li>
