@@ -51,7 +51,6 @@ function organizeRecipes(recipes: recipeIndexItem[]): alphabeticRecipeSection[] 
 }
 
 export default async function RecipeIndexPage() {
-  // const recipes = await client.fetch(`*[_type == "recipe"] | order(title desc)`);
   const recipes: recipeIndexItem[] | undefined = await client.fetch(recipes_query);
 
   if (!recipes) notFound();
@@ -60,7 +59,7 @@ export default async function RecipeIndexPage() {
 
   return (
     <div>
-      <PageHeading titleText="Recipe Index" />
+      <PageHeading titleText="Recipe List" />
       <ol className="mt-4 w-full">
         {recipeSections.map((recipeSection) => (
           <li key={recipeSection.character} className="mb-4">
