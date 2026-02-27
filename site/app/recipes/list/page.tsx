@@ -24,8 +24,6 @@ type alphabeticRecipeSection = {
   recipes: recipeIndexItem[];
 };
 
-// We assume recipes are already sorted alphabetically.
-// This function organizes them into sections by first character.
 function organizeRecipes(recipes: recipeIndexItem[]): alphabeticRecipeSection[] {
   const rSections: alphabeticRecipeSection[] = [];
   let currentLetter: string = 'A';
@@ -33,8 +31,6 @@ function organizeRecipes(recipes: recipeIndexItem[]): alphabeticRecipeSection[] 
   recipes.forEach((recipe) => {
     const recipeLetter: string = (recipe.title === undefined ? currentLetter : recipe.title[0])!;
 
-    // If we don't have any sections, or the current section doesn't match to the recipe,
-    // Create a new section with that recipe's first letter.
     if (rSections.length === 0 || currentLetter !== recipeLetter) {
       const newSection: alphabeticRecipeSection = {
         character: recipeLetter,
@@ -60,30 +56,34 @@ export default async function RecipeIndexPage() {
   return (
     <div>
       <PageHeading titleText="Recipe List" />
-      <ol className="mt-4 w-full">
-        {recipeSections.map((recipeSection) => (
-          <li key={recipeSection.character} className="mb-4">
-            <h2 className="mb-2 border-b-2 border-background w-full text-main-accent text-4xl">
-              {recipeSection.character}
-            </h2>
-            <div className="w-full border border-dotted mb-2" />
 
-            <ol className="mb-4">
-              {recipeSection.recipes.map((recipe) => (
-                <li key={recipe._id}>
-                  <Link
-                    href={`/recipes/${recipe.slug.current}`}
-                    className="nav-link-in-content text-foreground"
-                  >
-                    <FaUtensils className="inline mr-4" />
-                    <span>{recipe.title}</span>
-                  </Link>
-                </li>
-              ))}
-            </ol>
-          </li>
-        ))}
-      </ol>
+      <div className="mt-4 mb-4 text-foreground max-w-2xl mx-auto">
+        <ol className="mt-4 w-full">
+          {recipeSections.map((recipeSection) => (
+            <li key={recipeSection.character} className="mb-5">
+              <h2 className="mb-2 border-b-2 border-background w-full text-main-accent text-4xl">
+                {recipeSection.character}
+              </h2>
+
+              <ol className="mb-4 ml-2">
+                {recipeSection.recipes.map((recipe) => (
+                  <li key={recipe._id}>
+                    <Link
+                      href={`/recipes/${recipe.slug.current}`}
+                      className="nav-link-in-content text-foreground"
+                    >
+                      <div className="flex items-start gap-4 mb-3">
+                        <FaUtensils className="mt-1 flex-shrink-0" />
+                        <span>{recipe.title}</span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+            </li>
+          ))}
+        </ol>
+      </div>
     </div>
   );
 }

@@ -9,13 +9,35 @@ const recipesQuery = `
     _id,
     title,
     slug,
+    ingredients[]{
+      ingredient,
+      quantity,
+      unit
+    },
+    tags[]->{
+      _id,
+      slug
+    }
   } | order(title asc)
 `;
+
+type Ingredient = {
+  ingredient: string;
+  quantity?: number;
+  unit?: string;
+};
+
+type Tag = {
+  _id: string;
+  slug: { current: string };
+};
 
 type RecipeSearchItem = {
   _id: string;
   title: string;
   slug: { current: string };
+  ingredients?: Ingredient[];
+  tags?: Tag[];
 };
 
 export default async function RecipesPage() {
@@ -29,12 +51,6 @@ export default async function RecipesPage() {
       ></PageHeading>
       <div className="mt-4 mb-4 text-foreground max-w-2xl mx-auto">
         <div className="flex w-full gap-4 mb-6">
-          {/* <RecipeBookLink path="/recipes/categories">
-            <span>
-              <FaPizzaSlice className="inline mr-4 text-2xl" />
-              {'Browse by Category'}
-            </span>
-          </RecipeBookLink> */}
           <RecipeBookLink path="recipes/list">
             <span>
               <FaScroll className="inline mr-4 text-2xl" />
