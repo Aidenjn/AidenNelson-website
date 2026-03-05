@@ -58,7 +58,7 @@ export default function RootLayout({
         <div className="page-main pt-20">
           <Navbar />
           {/* Main content padding */}
-          <main className="-my-1 sm:-my-8 mx-8 sm:mx-20 md:mx-22 lg:mx-24">
+          <main className="mx-8 sm:mx-20 md:mx-22 lg:mx-24">
             {/* Content */}
             {children}
           </main>
