@@ -13,21 +13,21 @@ function numberToPrettyString(num: number): string {
 
   if (decimalNumStr === '.1') {
     decimalNumStr = '⅒';
-  } else if (decimalNumStr === '.111') {
+  } else if (decimalNumStr === '.11') {
     decimalNumStr = '⅑';
-  } else if (decimalNumStr === '.125') {
+  } else if (decimalNumStr === '.12') {
     decimalNumStr = '⅛';
-  } else if (decimalNumStr === '.142') {
+  } else if (decimalNumStr === '.14') {
     decimalNumStr = '⅐';
-  } else if (decimalNumStr === '.166') {
+  } else if (decimalNumStr === '.16') {
     decimalNumStr = '⅙';
   } else if (decimalNumStr === '.2') {
     decimalNumStr = '⅕';
   } else if (decimalNumStr === '.25') {
     decimalNumStr = '¼';
-  } else if (decimalNumStr === '.333') {
+  } else if (decimalNumStr === '.33') {
     decimalNumStr = '⅓';
-  } else if (decimalNumStr === '.375') {
+  } else if (decimalNumStr === '.37') {
     decimalNumStr = '⅜';
   } else if (decimalNumStr === '.4') {
     decimalNumStr = '⅖';
@@ -35,17 +35,17 @@ function numberToPrettyString(num: number): string {
     decimalNumStr = '½';
   } else if (decimalNumStr === '.6') {
     decimalNumStr = '⅗';
-  } else if (decimalNumStr === '.625') {
+  } else if (decimalNumStr === '.62') {
     decimalNumStr = '⅝';
-  } else if (decimalNumStr === '.666') {
+  } else if (decimalNumStr === '.66') {
     decimalNumStr = '⅔';
   } else if (decimalNumStr === '.75') {
     decimalNumStr = '¾';
   } else if (decimalNumStr === '.8') {
     decimalNumStr = '⅘';
-  } else if (decimalNumStr === '.833') {
+  } else if (decimalNumStr === '.83') {
     decimalNumStr = '⅚';
-  } else if (decimalNumStr === '.875') {
+  } else if (decimalNumStr === '.87') {
     decimalNumStr = '⅞';
   }
 
