@@ -9,7 +9,7 @@ export default function NavBannerBadge() {
   const isActive = pathname === homepageLink;
 
   return (
-    <div className="spin-group">
+    <div className="spin-group sm:mx-38 md:mx-45 lg:mx-55">
       <div
         className="
           absolute
@@ -36,7 +36,7 @@ export default function NavBannerBadge() {
           <div className="border-7 border-foreground rounded-sm p-4 bg-background">
             <Link
               href={homepageLink}
-              className={`${isActive ? 'underline decoration-focus_text_color decoration-6 underline-offset-5' : ''}`}
+              className={`${isActive ? 'decoration-focus_text_color decoration-6 underline-offset-5' : 'no-underline'}`}
             >
               Aiden Nelson
             </Link>
