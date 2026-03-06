@@ -23,7 +23,6 @@ export default function PictureCard({ args }: { args: IPictureCard }) {
     ? { icontype: 'fontawesome', icon: associatedFAIcon }
     : undefined;
 
-  console.log('args: ', args);
   return (
     <motion.div
       initial="rest"

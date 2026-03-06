@@ -49,10 +49,6 @@ export default async function RecipeCategoryPage({
   });
   const recipes: RecipeCardInfo[] | undefined = await client.fetch(recipes_query, { slug });
 
-  console.log('slug: ', slug);
-  console.log('category title: ', categoryTitle);
-  console.log('recipes: ', recipes);
-
   if (!recipes) notFound();
 
   const args: IPictureCardGrid = {
