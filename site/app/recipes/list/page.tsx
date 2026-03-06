@@ -54,8 +54,12 @@ function organizeRecipes(recipes: recipeIndexItem[]): alphabeticRecipeSection[] 
 
 function renderIcon(tag: undefined | string) {
   console.log('got ', tag);
-  const MaybeFontAwesomeIcon: IconType | undefined = (tag ? getFAIconFromTag(tag) : getFAIconFromTag('food'));
-  const FontAwesomeIcon: IconType = MaybeFontAwesomeIcon ? MaybeFontAwesomeIcon! : getFAIconFromTag('food')!;
+  const MaybeFontAwesomeIcon: IconType | undefined = tag
+    ? getFAIconFromTag(tag)
+    : getFAIconFromTag('food');
+  const FontAwesomeIcon: IconType = MaybeFontAwesomeIcon
+    ? MaybeFontAwesomeIcon!
+    : getFAIconFromTag('food')!;
   return <FontAwesomeIcon className="mt-1 flex-shrink-0" />;
 }
 
