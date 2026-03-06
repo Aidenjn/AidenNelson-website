@@ -1,5 +1,6 @@
 import { IconType } from 'react-icons';
 import {
+  FaBlender,
   FaCookie,
   FaDrumstickBite,
   FaEgg,
@@ -11,8 +12,11 @@ import {
 import {
   FaBowlFood,
   FaBowlRice,
+  FaCakeCandles,
   FaFishFins,
+  FaGlassWater,
   FaJar,
+  FaMartiniGlass,
   FaPlateWheat,
   FaWheatAwn,
 } from 'react-icons/fa6';
@@ -31,6 +35,11 @@ const tagToIconMap: Record<string, IconType> = {
   food: FaBowlFood,
   rice: FaBowlRice,
   'grain-bowls': FaPlateWheat,
+  cake: FaCakeCandles,
+  paella: FaBowlRice,
+  smoothie: FaBlender,
+  beverage: FaGlassWater,
+  cocktail: FaMartiniGlass,
 };
 
 export function getFAIconFromTag(tag: string): IconType | undefined {
