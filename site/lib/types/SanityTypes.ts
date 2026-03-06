@@ -1,3 +1,31 @@
+export interface Project {
+  _id: string;
+  _type: 'project';
+  title: string;
+  slug: SanitySlug;
+  description?: PortableTextBlock[];
+  projectLink?: string;
+  featuredImage: SanityImage;
+  projectFeatures?: ProjectFeature[];
+  content?: ContentSection[];
+  datePublished: string;
+  dateLastUpdated: string;
+}
+
+export interface ProjectFeature {
+  _key: string;
+  _type: 'projectFeature';
+  text: PortableTextBlock[];
+}
+
+export interface ContentSection {
+  _key: string;
+  _type: 'contentSection';
+  text: PortableTextBlock[];
+  image?: SanityImage;
+  imageCaption?: string;
+}
+
 export interface Recipe {
   _id: string;
   _type: 'recipe';

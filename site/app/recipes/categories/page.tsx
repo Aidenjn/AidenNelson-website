@@ -14,8 +14,6 @@ export default async function RecipeCategoriesPage() {
 
   if (!tags) notFound();
 
-  console.log('tags:', tags);
-
   const args: IPictureCardGrid = {
     cardInfos: tags.map((tag) => {
       const imageUrl: string | undefined = tag.image
@@ -28,6 +26,7 @@ export default async function RecipeCategoriesPage() {
           text: tag.plural_title,
           link: `/recipes/categories/${tag.slug.current}`,
           image: imageUrl,
+          icontag: tag.slug.current,
         },
       };
     }),

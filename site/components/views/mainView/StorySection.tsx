@@ -33,7 +33,7 @@ export default function StorySection({
       >
         <div className="relative w-10/12 aspect-square sm:max-w-5/6 lg:max-w-3/5">
           <WavyBorderImage
-            loadingIcon={icon}
+            loadingIcon={icon ? { icontype: 'custom', icon: icon } : undefined}
             imageUrl={image_url}
             shape={WavyShape.Square}
             disableLoadingEffect={false}

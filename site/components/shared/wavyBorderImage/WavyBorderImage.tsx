@@ -1,7 +1,7 @@
 import { HTMLAttributes } from 'react';
 import WavyBorderImageMask from './WavyBorderImageMask';
+import { LoadingIconOption } from './WavyBorderImageMask';
 import { WavyShape } from '@/lib/types/WavyShapes';
-import { CustomIcon } from '@/lib/types/CustomIcon';
 
 interface WavyBorderImageProps extends HTMLAttributes<HTMLDivElement> {
   imageUrl: string | undefined;
@@ -11,7 +11,7 @@ interface WavyBorderImageProps extends HTMLAttributes<HTMLDivElement> {
   alt?: string;
   width?: number | string;
   height?: number | string;
-  loadingIcon?: CustomIcon;
+  loadingIcon?: LoadingIconOption;
 }
 
 const WavyBorderImage = ({

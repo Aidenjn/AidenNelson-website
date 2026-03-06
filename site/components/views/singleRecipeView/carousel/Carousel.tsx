@@ -98,7 +98,7 @@ export default function Carousel({
             <WavyBorderImage
               imageUrl={imageUrl}
               shape={WavyShape.Rectangle}
-              loadingIcon={loadingIcon}
+              loadingIcon={loadingIcon ? { icontype: 'custom', icon: loadingIcon } : undefined}
               disableLoadingEffect={hasInteracted}
             />
           </motion.div>

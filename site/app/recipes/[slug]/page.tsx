@@ -66,7 +66,7 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
           </div>
         )}
 
-        {/** Showcase images */}
+        {/** Showcase image */}
         {recipe.image && (
           <div className="mx-auto max-w-200">
             <Carousel images={[recipe.image]} />

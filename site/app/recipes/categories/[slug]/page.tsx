@@ -9,6 +9,7 @@ type RecipeCardInfo = {
   title: string;
   slug: { current: string };
   image: SanityImage;
+  tags: { slug: { current: string } };
 };
 
 type CategoryTitle = {
@@ -23,6 +24,10 @@ const recipes_query = `
     title,
     slug,
     image,
+    tags[0]->{
+      _id,
+      slug
+    },
   }
 `;
 const category_title_query = `*[_type == "recipeTag" && $slug == slug.current][0] {
@@ -61,6 +66,7 @@ export default async function RecipeCategoryPage({
           text: recipe.title,
           link: `/recipes/${recipe.slug.current}`,
           image: imageUrl,
+          icontag: recipe.tags.slug.current,
         },
       };
     }),

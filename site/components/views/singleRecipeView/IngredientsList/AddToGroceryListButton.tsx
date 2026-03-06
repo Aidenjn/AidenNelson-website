@@ -21,7 +21,7 @@ export default function AddToGroceryListButton({ ingredientString }: { ingredien
   return (
     <span className="font-light">
       <a href={generateShortcutsHref(ingredientString)}>
-        <FancyButton className="bg-foreground border border-foreground rounded-full px-2 py-0">
+        <FancyButton className="bg-foreground border border-foreground rounded-full px-2 py-0 hover:cursor-pointer hover:text-background hover:bg-secondary-accent transition">
           <span className="text-sm">+</span>
         </FancyButton>
       </a>

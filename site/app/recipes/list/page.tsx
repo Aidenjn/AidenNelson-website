@@ -1,8 +1,9 @@
 import PageHeading from '@/components/shared/PageHeading';
 import { client } from '@/lib/sanity';
+import { getFAIconFromTag } from '@/lib/utils/getFAIconFromTag';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { FaUtensils } from 'react-icons/fa';
+import { IconType } from 'react-icons';
 
 // GROQ query for recipes
 const recipes_query = `
@@ -10,6 +11,10 @@ const recipes_query = `
     _id,
     title,
     slug,
+    tags[0]->{
+      _id,
+      slug
+    },
   } | order(title asc)
 `;
 
@@ -17,6 +22,7 @@ type recipeIndexItem = {
   _id: string;
   title: string;
   slug: { current: string };
+  tags: { slug: { current: string } };
 };
 
 type alphabeticRecipeSection = {
@@ -46,8 +52,16 @@ function organizeRecipes(recipes: recipeIndexItem[]): alphabeticRecipeSection[] 
   return rSections;
 }
 
+function renderIcon(tag: undefined | string) {
+  console.log('got ', tag);
+  const FontAwesomeIcon: IconType = (tag ? getFAIconFromTag(tag) : getFAIconFromTag('food'))!;
+  return <FontAwesomeIcon className="mt-1 flex-shrink-0" />;
+}
+
 export default async function RecipeIndexPage() {
   const recipes: recipeIndexItem[] | undefined = await client.fetch(recipes_query);
+
+  console.log(recipes);
 
   if (!recipes) notFound();
 
@@ -73,7 +87,7 @@ export default async function RecipeIndexPage() {
                       className="nav-link-in-content text-foreground"
                     >
                       <div className="flex items-start gap-4 mb-3">
-                        <FaUtensils className="mt-1 flex-shrink-0" />
+                        {renderIcon(recipe.tags?.slug?.current)}
                         <span>{recipe.title}</span>
                       </div>
                     </Link>
