@@ -67,6 +67,47 @@ export default defineType({
     }),
 
     defineField({
+      name: 'projectFeatures',
+      title: 'Project Features',
+      type: 'array',
+      description: 'Features of the project to be noted in a list',
+      of: [
+        {
+          type: 'object',
+          name: 'projectFeature',
+          fields: [
+            {
+              name: 'text',
+              title: 'Text',
+              type: 'array',
+              of: [
+                {
+                  type: 'block',
+                  marks: {
+                    annotations: [
+                      {
+                        name: 'link',
+                        type: 'object',
+                        title: 'Link',
+                        fields: [
+                          {
+                            name: 'href',
+                            type: 'url',
+                            title: 'URL',
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          ]
+        },
+      ],
+    }),
+
+    defineField({
       name: 'content',
       title: 'Content',
       type: 'array',

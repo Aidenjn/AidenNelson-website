@@ -122,12 +122,6 @@ export default defineType({
           name: 'ingredient',
           fields: [
             {
-              name: 'ingredient',
-              title: 'Ingredient',
-              type: 'string',
-              validation: (Rule) => Rule.required(),
-            },
-            {
               name: 'quantity',
               title: 'Quantity',
               type: 'number',
@@ -151,12 +145,19 @@ export default defineType({
                 layout: 'dropdown',
               },
             },
+            {
+              name: 'ingredient',
+              title: 'Ingredient',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            },
           ],
           preview: {
             select: {
-              name: 'ingredient',
               quantity: 'quantity',
               unit: 'unit',
+              name: 'ingredient',
+
             },
             prepare({ name, quantity, unit }) {
               const unitDisplay = unit ? ` ${unit}` : ''
