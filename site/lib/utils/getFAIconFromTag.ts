@@ -43,8 +43,6 @@ const tagToIconMap: Record<string, IconType> = {
 };
 
 export function getFAIconFromTag(tag: string): IconType | undefined {
-  console.log('tag: ', tag);
   if (!tag) return undefined;
-  console.log('tagToIconMap result: ', tagToIconMap[tag]);
   return tagToIconMap[tag];
 }

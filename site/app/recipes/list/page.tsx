@@ -53,7 +53,6 @@ function organizeRecipes(recipes: recipeIndexItem[]): alphabeticRecipeSection[] 
 }
 
 function renderIcon(tag: undefined | string) {
-  console.log('got ', tag);
   const MaybeFontAwesomeIcon: IconType | undefined = tag
     ? getFAIconFromTag(tag)
     : getFAIconFromTag('food');
@@ -65,8 +64,6 @@ function renderIcon(tag: undefined | string) {
 
 export default async function RecipeListPage() {
   const recipes: recipeIndexItem[] | undefined = await client.fetch(recipes_query);
-
-  console.log(recipes);
 
   if (!recipes) notFound();
 
