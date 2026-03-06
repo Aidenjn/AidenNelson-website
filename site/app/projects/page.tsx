@@ -24,8 +24,6 @@ const projects_query = `
 export default async function ProjectsPage() {
   const projects: ProjectCardInfo[] | undefined = await client.fetch(projects_query);
 
-  console.log('projects: ', projects);
-
   if (!projects || projects.length === 0) notFound();
 
   const args: IPictureCardGrid = {
