@@ -124,7 +124,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
         )}
 
-        {/** Dates */}
+        {/** Dates **/}
         {/* <div className="mt-12 pt-6 border-t text-sm text-muted-foreground">
           <p>Published: {new Date(project.datePublished).toLocaleDateString()}</p>
           <p>Last updated: {new Date(project.dateLastUpdated).toLocaleDateString()}</p>
