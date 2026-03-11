@@ -11,14 +11,10 @@ export default function SocialLinks() {
   ];
 
   return (
-    <div className="relative grid place-items-center h-23 w-full pointer-events-auto">
-      <div className="flex flex-col items-center">
-        <div className="flex gap-15 mb-1 text-4xl">
-          {links.map((link) => (
-            <SocialLinkButton href={link.href} icon={link.icon} key={link.href} />
-          ))}
-        </div>
-      </div>
+    <div className="flex justify-center gap-10 py-4">
+      {links.map((link) => (
+        <SocialLinkButton href={link.href} icon={link.icon} key={link.href} />
+      ))}
     </div>
   );
 }

@@ -7,6 +7,8 @@ const BannerOverlay = ({ title }: { title: string }) => (
     sm:py-2
     w-full
     text-center
+    bg-background
+    no-underline
     "
   >
     {title}

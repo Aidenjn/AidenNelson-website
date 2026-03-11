@@ -1,9 +1,6 @@
 import PageHeading from '@/components/shared/PageHeading';
 import RecipeSearchBar from '@/components/views/recipePageView/RecipeSearchBar';
-import RecipeBookLink from '@/components/views/recipePageView/RecipeBookLink';
-import { FaScroll } from 'react-icons/fa';
 import { client } from '@/lib/sanity';
-import { FaBurger } from 'react-icons/fa6';
 
 const recipesQuery = `
   *[_type == "recipe"] {
@@ -47,24 +44,10 @@ export default async function RecipesPage() {
   return (
     <div>
       <PageHeading
-        titleText="Cook Book"
+        titleText="Delights Await You"
         descriptionText="Welcome to my cook book! Here I store recipes of meals I have eaten and want to eat again."
       ></PageHeading>
       <div className="mt-4 mb-4 text-foreground max-w-2xl mx-auto">
-        <div className="flex w-full gap-4 mb-6">
-          <RecipeBookLink path="recipes/list">
-            <span>
-              <FaScroll className="inline mr-4 text-lg" />
-              {'All Recipes'}
-            </span>
-          </RecipeBookLink>
-          <RecipeBookLink path="recipes/categories">
-            <span>
-              <FaBurger className="inline mr-2 sm:mr-4 text-lg" />
-              {'Categories'}
-            </span>
-          </RecipeBookLink>
-        </div>
         <div className="flex w-full justify-center mb-60">
           <RecipeSearchBar recipes={recipes} />
         </div>

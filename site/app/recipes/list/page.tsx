@@ -71,7 +71,7 @@ export default async function RecipeListPage() {
 
   return (
     <div>
-      <PageHeading titleText="Recipe List" />
+      <PageHeading titleText="Recipe Index" />
 
       <div className="mt-4 mb-4 text-foreground max-w-2xl mx-auto">
         <ol className="mt-4 w-full">

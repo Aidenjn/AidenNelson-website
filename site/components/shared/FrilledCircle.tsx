@@ -4,8 +4,8 @@ import React from 'react';
 
 interface FrilledCircleProps {
   size?: number;
-  backgroundColor?: string;
   borderRadius?: number;
+  colorClass?: string;
   children?: React.ReactNode;
 }
 
@@ -13,14 +13,13 @@ interface FrilledCircleProps {
 
 export default function FrilledCircle({
   size = 150,
-  backgroundColor = '#ffffff',
   borderRadius = 3,
+  colorClass = 'main-accent',
   children,
 }: FrilledCircleProps) {
   const shift = size / 2;
 
   const baseSquareStyle: React.CSSProperties = {
-    backgroundColor: backgroundColor,
     width: size,
     height: size,
     left: -shift,
@@ -32,7 +31,7 @@ export default function FrilledCircle({
     <div className="relative">
       {/* Frontmost square */}
       <div
-        className="absolute z-20 flex items-center justify-center"
+        className={`${colorClass} absolute z-20 flex items-center justify-center`}
         style={{
           ...baseSquareStyle,
         }}
@@ -44,7 +43,7 @@ export default function FrilledCircle({
       {Array.from({ length: 10 }).map((_, i) => (
         <div
           key={i}
-          className={`absolute ${i % 2 === 0 ? 'z-10' : 'z-0'}`}
+          className={`${colorClass} absolute ${i % 2 === 0 ? 'z-10' : 'z-0'}`}
           style={{
             ...baseSquareStyle,
             transform: `rotate(${(i + 1) * 9}deg)`,

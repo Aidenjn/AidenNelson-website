@@ -31,7 +31,7 @@ export default function StorySection({
         viewport={{ once: true }}
         className="md:w-1/2 mb-8 md:mb-0 w-full flex justify-center"
       >
-        <div className="relative w-10/12 aspect-square sm:max-w-5/6 lg:max-w-3/5">
+        <div className="relative w-full aspect-square md:max-w-5/6 lg:max-w-3/5">
           <WavyBorderImage
             loadingIcon={icon ? { icontype: 'custom', icon: icon } : undefined}
             imageUrl={image_url}
@@ -48,8 +48,10 @@ export default function StorySection({
         viewport={{ once: true }}
         className="md:w-1/2 md:pl-12 md:pr-12"
       >
-        <h2 className="text-3xl font-semibold mb-4">{heading}</h2>
-        <p className="text-lg leading-relaxed">{children}</p>
+        <h2 className="text-2xl sm:text-3xl md:text-2xl lg:text-3xl font-semibold mb-4">
+          {heading}
+        </h2>
+        <p className="text-lg md:text-base lg:text-lg leading-relaxed">{children}</p>
       </motion.div>
     </section>
   );

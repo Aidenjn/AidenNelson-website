@@ -3,10 +3,15 @@ import FrilledCircle from '@/components/shared/FrilledCircle';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export default function NavBannerBadge() {
-  const homepageLink = '/';
+export default function NavBannerBadge({
+  title = 'Aiden Nelson',
+  titleLink = '/',
+}: {
+  title: string;
+  titleLink: string;
+}) {
   const pathname = usePathname();
-  const isActive = pathname === homepageLink;
+  const isActive = pathname === titleLink;
 
   return (
     <div className="spin-group sm:mx-38 md:mx-45 lg:mx-55">
@@ -35,19 +40,19 @@ export default function NavBannerBadge() {
         <div className="border-6 border-background rounded-sm bg-background">
           <div className="border-7 border-foreground rounded-sm p-4 bg-background">
             <Link
-              href={homepageLink}
+              href={titleLink}
               className={`${isActive ? 'decoration-focus_text_color decoration-6 underline-offset-5' : 'no-underline'}`}
             >
-              Aiden Nelson
+              {title}
             </Link>
           </div>
         </div>
       </div>
       <div className="pb-98 sm:pb-3">
         <div className="spinner">
-          <FrilledCircle backgroundColor="var(--color-main-accent)" size={171}>
-            <FrilledCircle backgroundColor="var(--color-background)" size={160}>
-              <FrilledCircle backgroundColor="var(--color-secondary-accent)">{''}</FrilledCircle>
+          <FrilledCircle colorClass="bg-main-accent" size={171}>
+            <FrilledCircle colorClass="bg-background" size={160}>
+              <FrilledCircle colorClass="bg-secondary-accent">{''}</FrilledCircle>
             </FrilledCircle>
           </FrilledCircle>
         </div>

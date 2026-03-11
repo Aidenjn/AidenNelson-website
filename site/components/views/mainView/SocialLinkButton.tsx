@@ -12,40 +12,55 @@ export default function SocialLinkButton({
 }) {
   const boxSize = 55;
   const spacingIncrement = 5;
+  const shift = boxSize / 2; // 27.5 — matches FrilledCircle's internal offset
 
   return (
-    <div>
-      <motion.div
-        whileTap={{ scale: 0.9 }}
-        className="relative inline-flex items-center justify-center"
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileTap={{ scale: 0.9 }}
+      className="relative block"
+      style={{
+        width: boxSize,
+        height: boxSize,
+      }}
+    >
+      {/* FrilledCircle centered in the space */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          left: shift,
+          top: shift,
+        }}
       >
-        {/* Frilled circles (background, transforms together) */}
-        <div className="absolute inset-0 flex items-center justify-center -z-10">
-          <FrilledCircle size={boxSize} backgroundColor="var(--color-main-accent)" borderRadius={0}>
+        <FrilledCircle size={boxSize} colorClass="bg-main-accent" borderRadius={0}>
+          <FrilledCircle
+            size={boxSize - spacingIncrement}
+            colorClass="bg-background"
+            borderRadius={0}
+          >
             <FrilledCircle
-              size={boxSize - spacingIncrement}
-              backgroundColor="var(--color-background)"
+              size={boxSize - spacingIncrement * 2}
+              colorClass="bg-foreground"
               borderRadius={0}
-            >
-              <FrilledCircle
-                size={boxSize - spacingIncrement * 2}
-                backgroundColor="var(--color-foreground)"
-                borderRadius={0}
-              />
-            </FrilledCircle>
+            />
           </FrilledCircle>
-        </div>
+        </FrilledCircle>
+      </div>
 
-        {/* Icon */}
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="relative z-10 text-background"
-        >
-          {icon}
-        </a>
-      </motion.div>
-    </div>
+      {/* Icon centered in the same coordinate space */}
+      <div
+        className="absolute flex items-center justify-center z-30 text-background text-4xl"
+        style={{
+          left: 0,
+          top: 0,
+          width: boxSize,
+          height: boxSize,
+        }}
+      >
+        {icon}
+      </div>
+    </motion.a>
   );
 }

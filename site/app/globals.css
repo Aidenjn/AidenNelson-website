@@ -1,6 +1,38 @@
 @import 'tailwindcss';
 
+/* ============================================
+   THEME VARIABLES
+   ============================================ */
 :root {
+  --transition-duration: 300ms;
+  --transition-fast: 300ms;
+  /* 
+  --background: #fff0df;
+  --foreground: #5f1980;
+  --main-accent: #ff3b9d;
+  --secondary-accent: #ffbf00;
+
+  --foreground_text_color: #fff0df;
+  --background_text_color: #5f1980;
+  --hover_text_color: #ffbf00;
+  --hover_background_color: #8e82fe;
+  --focus_text_color: #ffbf00;  */
+}
+
+.theme-professional {
+  --background: #ffffff;
+  --foreground: #000000;
+  --main-accent: #666666;
+  --secondary-accent: #000000;
+
+  --foreground_text_color: #ffffff;
+  --background_text_color: #000000;
+  --hover_text_color: #ffbf00;
+  --hover_background_color: #8e82fe;
+  --focus_text_color: #ffbf00;
+}
+
+.theme-cookbook {
   --background: #fff0df;
   --foreground: #5f1980;
   --main-accent: #ff3b9d;
@@ -13,6 +45,36 @@
   --focus_text_color: #ffbf00;
 }
 
+/* ============================================
+   GLOBAL COLOR TRANSITIONS
+   ============================================ */
+
+/* Apply smooth transitions to all color properties */
+*,
+*::before,
+*::after {
+  transition-property:
+    color, background-color, border-color, outline-color, fill, stroke, text-decoration-color,
+    box-shadow;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: ease-in-out;
+}
+
+/* Disable transitions on media and performance-critical elements
+svg *,
+img,
+video,
+canvas,
+iframe,
+.spin-group,
+.spinner,
+.spin-group:hover .spinner {
+  transition: none !important;
+} */
+
+/* ============================================
+   TAILWIND THEME CONFIGURATION
+   ============================================ */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -32,12 +94,14 @@
   --font-ultra: var(--font-ultra);
 }
 
+/* ============================================
+   COMPONENT STYLES
+   ============================================ */
+
 body {
-  /* font-family: var(--font-shantell-sans), Arial, Helvetica, sans-serif; */
   font-family: var(--font-ultra), Arial, Helvetica, sans-serif;
 
-  @apply bg-background
-    text-foreground_text_color
+  @apply text-foreground_text_color
     min-w-[250];
 }
 
@@ -60,23 +124,24 @@ p {
   @apply text-foreground;
 }
 
+/* Optimized: uses global transition, keeps hover timing */
 a {
   @apply hover:text-hover_text_color
     hover:stroke-hover_text_color
-    duration-300 ease-in-out
     underline
     underline-offset-4;
+  /* Removed duration-300 ease-in-out — now handled globally */
+}
+
+a.no-underline {
+  @apply no-underline;
 }
 
 .centered-square {
-  /* display:inline-block;
-  transform-origin: center center; */
   width: 150px;
   height: 150px;
   left: -75px;
   top: -75px;
-  /* @apply
-    bg-amber-500; */
 }
 
 .banner-badge-frontmost {
@@ -151,22 +216,24 @@ svg.splat {
     hover:text-hover_text_color;
 }
 
+/* Optimized: uses global transition, keeps hover timing */
 .nav-link {
   @apply sm:text-base
     md:text-lg
     lg:text-2xl
     hover:text-hover_text_color
     hover:stroke-hover_text_color
-    duration-300 ease-in-out
     no-underline;
+  /* Removed duration-300 ease-in-out — now handled globally */
 }
 
+/* Optimized: uses global transition, keeps hover timing */
 .nav-link-in-content {
   @apply underline
     underline-offset-3
     hover:text-hover_text_color
-    hover:stroke-hover_text_color
-    duration-300 ease-in-out;
+    hover:stroke-hover_text_color;
+  /* Removed duration-300 ease-in-out — now handled globally */
 }
 
 .nav-focus {
@@ -190,15 +257,14 @@ svg.splat {
 }
 
 .spinner {
-  display: inline-block; /* important */
+  display: inline-block;
 }
 
 .spin-group:hover .spinner {
   animation: spin 8s linear infinite;
 }
 
-/** WARNING: Below rules may break if google changes them for the embedded search component **/
-
+/* Google Custom Search overrides */
 .gsc-table-cell-thumbnail,
 .gs-promotion-image-cell {
   float: right;

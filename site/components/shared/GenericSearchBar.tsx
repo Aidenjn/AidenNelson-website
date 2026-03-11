@@ -59,7 +59,7 @@ export function GenericSearchBar<T>({
   };
 
   return (
-    <div className="relative w-full max-w-lg px-4 sm:px-0">
+    <div className="relative w-full px-4 sm:px-0">
       <div className="flex gap-2 sm:gap-4 w-full items-center">
         <FaSearch className="text-2xl sm:text-3xl flex-shrink-0" />
         <div className="flex gap-2 flex-1 min-w-0">

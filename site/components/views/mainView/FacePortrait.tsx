@@ -1,43 +1,45 @@
 import FrilledCircle from '@/components/shared/FrilledCircle';
-import React from 'react';
 import Image from 'next/image';
 
 export default function FacePortrait() {
-  const size: number = 200;
+  const size: number = 205;
   const spacingIncrement: number = 10;
+  const shift = size / 2;
 
-  const facePortraitStyle: React.CSSProperties = {
-    width: size + spacingIncrement,
-  };
+  const innerSize = size - spacingIncrement * 3; // 170 — FrilledCircle size
+  const imageSize = innerSize * 1.2; // 204 — 20% larger image
+
+  // Calculate offset to center the larger image
+  const offset = (imageSize - innerSize) / 2; // 17px
 
   return (
-    <div className="relative inline-flex items-center justify-center">
-      {/* Frilled circles (background, transforms together) */}
-      <div className="absolute inset-0 flex items-center justify-center -z-10">
-        <FrilledCircle size={size} backgroundColor="var(--color-main-accent)">
-          <FrilledCircle size={size - spacingIncrement} backgroundColor="var(--color-background)">
-            <FrilledCircle
-              size={size - spacingIncrement * 2}
-              backgroundColor="var(--color-secondary-accent)"
-            >
-              <FrilledCircle
-                size={size - spacingIncrement * 3}
-                backgroundColor="var(--color-background)"
-              />
-            </FrilledCircle>
-          </FrilledCircle>
+    <div className="relative" style={{ width: size, height: size }}>
+      {/* Frilled circles */}
+      <div className="absolute pointer-events-none" style={{ left: shift, top: shift }}>
+        <FrilledCircle size={size - spacingIncrement * 2} colorClass="bg-background">
+          <FrilledCircle size={innerSize} colorClass="bg-foreground" />
         </FrilledCircle>
       </div>
-      <Image
-        src="/images/flower_shirt_me.jpeg"
-        alt="Portrait of Aiden Nelson."
-        className="rounded-full relative z-10 border-6 border-foreground"
-        width={300}
-        height={300}
+
+      {/* Larger image centered on top, overflowing the inner circle */}
+      <div
+        className="absolute z-30 rounded-full overflow-hidden"
         style={{
-          ...facePortraitStyle,
+          left: (size - innerSize) / 2 - offset, // 15 - 17 = -2px
+          top: (size - innerSize) / 2 - offset,
+          width: imageSize,
+          height: imageSize,
         }}
-      />
+      >
+        <Image
+          src="/images/flower_shirt_me.jpeg"
+          alt="Portrait of Aiden Nelson."
+          fill
+          className="object-cover"
+          sizes="204px"
+          priority
+        />
+      </div>
     </div>
   );
 }

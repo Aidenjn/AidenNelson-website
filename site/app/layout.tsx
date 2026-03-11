@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Roboto, Arbutus, Ultra } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/navbar/Navbar';
 import Footer from '@/components/layout/Footer';
+import ThemeWrapper from '@/components/layout/ThemeWrapper';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -42,6 +43,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  'use client';
+
   return (
     <html lang="en">
       <body
@@ -55,15 +58,17 @@ export default function RootLayout({
           antialiased
         `}
       >
-        <div className="page-main pt-20">
-          <Navbar />
-          {/* Main content padding */}
-          <main className="mx-8 sm:mx-20 md:mx-22 lg:mx-24">
-            {/* Content */}
-            {children}
-          </main>
-          <Footer />
-        </div>
+        <ThemeWrapper>
+          <div className="page-main pt-20">
+            <Navbar />
+            {/* Main content padding */}
+            <main className="mx-8 sm:mx-20 md:mx-22 lg:mx-24">
+              {/* Content */}
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </ThemeWrapper>
       </body>
     </html>
   );

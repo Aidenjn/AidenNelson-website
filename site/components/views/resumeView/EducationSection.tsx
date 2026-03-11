@@ -54,13 +54,13 @@ export default function EducationSection({ educations }: Props) {
             <SubSectionDivider />
             <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2 mt-6">
               <h3 className="text-2xl text-foreground font-roboto font-bold">{education.degree}</h3>
-              <span className="text-md text-muted-foreground flex items-center gap-2 font-roboto font-bold mt-2 md:mt-0">
+              <span className="text-base text-muted-foreground flex items-center gap-2 font-roboto font-bold mt-2 md:mt-0">
                 <FaGraduationCap className="w-3 h-3 text-3xl" />
                 {`${education.graduatedDate}`}
               </span>
             </div>
 
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3 text-md font-roboto font-bold">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3 text-base font-roboto font-bold">
               <span className="text-muted-foreground flex items-center gap-1">
                 <FaSchool className="w-3 h-3" />
                 {education.institution}
