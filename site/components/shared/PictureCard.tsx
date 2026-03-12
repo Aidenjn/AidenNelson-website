@@ -26,7 +26,7 @@ export default function PictureCard({ args }: { args: IPictureCard }) {
   return (
     <div className="relative w-full bg-background rounded-xl cursor-pointer">
       <SlideInAnimationDiv>
-        <Link href={`${args.link}`}>
+        <Link href={`${args.link}`} className="no-underline">
           <div
             className="
             relative
@@ -38,8 +38,7 @@ export default function PictureCard({ args }: { args: IPictureCard }) {
             2xl:text-2xl
             hover:text-hover_text_color
             hover:stroke-hover_text_color
-            duration-300 ease-in-out
-            no-underline;
+            duration-300 ease-in-out;
           "
           >
             <WavyBorderImage imageUrl={args.image} loadingIcon={iconArg} />

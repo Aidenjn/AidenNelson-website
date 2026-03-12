@@ -10,7 +10,6 @@ const BannerOverlay = ({ title }: { title: string }) => (
     text-sm
     sm:text-base
     lg:text-lg
-    no-underline
     "
   >
     {title}
