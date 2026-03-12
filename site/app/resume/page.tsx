@@ -12,7 +12,7 @@ export default function ResumePage() {
 
   return (
     <main>
-      <PageHeading titleText="Resume" />
+      <PageHeading titleText="Résumé" />
       <div className="mb-2 text-foreground max-w-2xl mx-auto">
         <div className="py-8">
           <SocialLinks />

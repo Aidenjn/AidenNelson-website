@@ -9,7 +9,7 @@ interface Props {
 export default function SkillsSection({ skills }: Props) {
   return (
     <section className="py-8">
-      <h2 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
+      <h2 className="text-xl font-light text-foreground mb-6 flex items-center gap-2">
         <FaCode className="w-5 h-5 text-primary" />
         Skills
       </h2>

@@ -26,7 +26,7 @@ export default function Hero() {
         viewport={{ once: true }}
         className="md:w-1/2 mt-15 sm:mt-10 text-center"
       >
-        <h2 className="text-2xl font-semibold mb-4 pb-5">
+        <h2 className="text-2xl font-light mb-4 pb-5">
           {'Welcome to my site!'}
           <br />
           {'Scroll down to learn more about me.'}

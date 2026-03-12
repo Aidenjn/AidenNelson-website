@@ -10,7 +10,7 @@ interface Props {
 export default function ExperienceSection({ experiences }: Props) {
   return (
     <section className="py-8">
-      <h2 className="text-2xl font-semibold text-foreground mb-6 flex items-center gap-2">
+      <h2 className="text-2xl font-roboto text-3xl font-bold text-foreground mb-6 flex items-center gap-2">
         Experience
       </h2>
 

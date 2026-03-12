@@ -81,7 +81,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         {/** Project features */}
         {project.projectFeatures && project.projectFeatures.length > 0 && (
           <div className="pb-8">
-            <h2 className="text-2xl font-bold mb-4">Features</h2>
+            <h2 className="text-2xl font-light mb-4">Features</h2>
             <ul className="list-disc pl-6 space-y-2">
               {project.projectFeatures.map((feature) => (
                 <li key={feature._key}>

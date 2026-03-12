@@ -43,9 +43,7 @@ export default function PageHeading({
         {icon && (
           <CustomIconSVG icon={icon} className="w-10 h-10 sm:w-15 sm:h-15 stroke-foreground" />
         )}
-        <h1 className="text-3xl font-semibold text-foreground max-w-100 sm:max-w-full">
-          {titleText}
-        </h1>
+        <h1 className="text-3xl text-foreground max-w-100 sm:max-w-full font-light">{titleText}</h1>
       </motion.div>
 
       {/* Show category icons underneath the title */}

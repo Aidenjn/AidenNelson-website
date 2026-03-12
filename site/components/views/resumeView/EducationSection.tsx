@@ -44,7 +44,7 @@ function renderEducationHighlight(highlight: string) {
 export default function EducationSection({ educations }: Props) {
   return (
     <section className="py-8">
-      <h2 className="text-2xl font-semibold text-foreground mb-6 flex items-center gap-2">
+      <h2 className="text-2xl font-roboto text-3xl font-bold text-foreground mb-6 flex items-center gap-2">
         Education
       </h2>
 
@@ -93,58 +93,3 @@ export default function EducationSection({ educations }: Props) {
     </section>
   );
 }
-//   return (
-//     <section className="py-8">
-//       <h2 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
-//         <FaGraduationCap className="w-5 h-5 text-primary" />
-//         Education
-//       </h2>
-
-//       <div className="space-y-6">
-//         {education.map((edu) => (
-//           <article key={edu.id}>
-//             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
-//               <h3 className="text-lg font-medium text-foreground">
-//                 {edu.institution}
-//               </h3>
-//               <span className="text-sm text-muted-foreground flex items-center gap-2">
-//                 <FaCalendar className="w-3 h-3" />
-//                 {edu.startDate} — {edu.endDate}
-//               </span>
-//             </div>
-
-//             <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2 text-sm">
-//               <span className="font-medium text-primary">
-//                 {edu.degree}, {edu.field}
-//               </span>
-//               <span className="hidden sm:inline text-muted-foreground">•</span>
-//               <span className="text-muted-foreground flex items-center gap-1">
-//                 <FaLocationDot className="w-3 h-3" />
-//                 {edu.location}
-//               </span>
-//             </div>
-
-//             {edu.gpa && (
-//               <p className="text-sm text-muted-foreground mb-2">
-//                 GPA: {edu.gpa}
-//               </p>
-//             )}
-
-//             {edu.honors && edu.honors.length > 0 && (
-//               <div className="flex flex-wrap gap-2">
-//                 {edu.honors.map((honor) => (
-//                   <span
-//                     key={honor}
-//                     className="text-xs px-2 py-1 rounded-md bg-accent text-accent-foreground"
-//                   >
-//                     {honor}
-//                   </span>
-//                 ))}
-//               </div>
-//             )}
-//           </article>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// }
