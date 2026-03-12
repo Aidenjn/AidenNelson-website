@@ -68,12 +68,12 @@ export function GenericSearchBar<T>({
             value={query}
             onChange={(e) => handleSearch(e.target.value)}
             placeholder={placeholder}
-            className="text-background_text_color border-4 border-foreground rounded-sm p-2 flex-1 min-w-0 focus:outline-none focus:ring-1 focus:border-2 focus:border-secondary-accent transition-all duration-200"
+            className="text-background_text_color border-4 border-foreground rounded-sm p-2 flex-1 min-w-0 focus:outline-none ring-secondary-accent focus:ring-1 focus:border-2 focus:border-secondary-accent transition-all duration-200"
           />
           <button
             type="button"
             onClick={handleCancel}
-            className={`flex items-center ring-1 ring-foreground justify-center h-10 sm:h-12 border-4 border-foreground bg-foreground hover:bg-secondary-accent hover:text-foreground text-background rounded-sm transition-all duration-200 overflow-hidden flex-shrink-0 ${
+            className={`flex items-center ring-1 ring-foreground justify-center h-10 sm:h-12 border-4 border-foreground bg-foreground hover:bg-secondary-accent hover:ring-secondary-accent hover:border-secondary-accent text-background rounded-sm transition-all duration-200 overflow-hidden flex-shrink-0 ${
               showResults ? 'w-10 sm:w-12 opacity-100' : 'w-0 opacity-0'
             }`}
             aria-label="Cancel search"

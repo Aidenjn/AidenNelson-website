@@ -37,8 +37,9 @@ export default function PictureCard({ args }: { args: IPictureCard }) {
             sm:text-lg
             2xl:text-2xl
             hover:text-hover_text_color
-            hover:stroke-hover_text_color
-            duration-300 ease-in-out;
+            duration-300 ease-in-out
+            card-group
+            ;
           "
           >
             <WavyBorderImage imageUrl={args.image} loadingIcon={iconArg} />

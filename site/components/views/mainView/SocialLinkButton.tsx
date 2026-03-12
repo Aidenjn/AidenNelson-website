@@ -26,40 +26,42 @@ export default function SocialLinkButton({
         height: boxSize,
       }}
     >
-      {/* FrilledCircle centered in the space */}
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          left: shift,
-          top: shift,
-        }}
-      >
-        <FrilledCircle size={boxSize} colorClass="bg-main-accent" borderRadius={0}>
-          <FrilledCircle
-            size={boxSize - spacingIncrement}
-            colorClass="bg-background"
-            borderRadius={0}
-          >
+      <div className="social-link-button-group">
+        {/* FrilledCircle centered in the space */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            left: shift,
+            top: shift,
+          }}
+        >
+          <FrilledCircle size={boxSize} colorClass="bg-main-accent" borderRadius={0}>
             <FrilledCircle
-              size={boxSize - spacingIncrement * 2}
-              colorClass="bg-foreground"
+              size={boxSize - spacingIncrement}
+              colorClass="bg-background"
               borderRadius={0}
-            />
+            >
+              <FrilledCircle
+                size={boxSize - spacingIncrement * 2}
+                colorClass="bg-foreground"
+                borderRadius={0}
+              />
+            </FrilledCircle>
           </FrilledCircle>
-        </FrilledCircle>
-      </div>
+        </div>
 
-      {/* Icon centered in the same coordinate space */}
-      <div
-        className="absolute flex items-center justify-center z-30 text-background text-4xl"
-        style={{
-          left: 0,
-          top: 0,
-          width: boxSize,
-          height: boxSize,
-        }}
-      >
-        {icon}
+        {/* Icon centered in the same coordinate space */}
+        <div
+          className="absolute flex items-center justify-center z-30 text-background text-4xl"
+          style={{
+            left: 0,
+            top: 0,
+            width: boxSize,
+            height: boxSize,
+          }}
+        >
+          {icon}
+        </div>
       </div>
     </motion.a>
   );
