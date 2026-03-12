@@ -59,11 +59,11 @@ export default function RootLayout({
         `}
       >
         <ThemeWrapper>
-          <div className="page-main pt-20">
+          {/* Added flex flex-col min-h-screen */}
+          <div className="page-main pt-20 flex flex-col min-h-screen">
             <Navbar />
-            {/* Main content padding */}
-            <main className="mx-8 sm:mx-20 md:mx-22 lg:mx-24">
-              {/* Content */}
+            {/* Added flex-grow to push footer down */}
+            <main className="mx-8 sm:mx-20 md:mx-22 lg:mx-24 flex-grow">
               {children}
             </main>
             <Footer />

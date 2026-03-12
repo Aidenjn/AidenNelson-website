@@ -12,6 +12,7 @@ export default function ThemeWrapper({
   const themeClass = (() => {
     if (pathname === '/') return 'theme-professional';
     if (pathname.startsWith('/recipes')) return 'theme-cookbook';
+    if (pathname.startsWith('/blog')) return 'theme-blog';
     // Add more path mappings here
     return 'theme-professional';
   })();

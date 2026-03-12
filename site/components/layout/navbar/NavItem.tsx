@@ -15,7 +15,7 @@ export default function NavItem({ name, href }: NavItemProps) {
     <div className="text-center">
       <Link
         href={href}
-        className={`px-2 py-1 font-medium transition-colors
+        className={`px-2 py-1 font-medium transition-colors text-nowrap
           ${isActive ? 'nav-link nav-focus' : 'nav-link'}
         `}
       >

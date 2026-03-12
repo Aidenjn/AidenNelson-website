@@ -16,21 +16,34 @@ type NavInfo = {
 };
 
 function getNavInfo(pathname: string): NavInfo {
-  if (pathname.startsWith('/recipes'))
-    return {
-      centerLink: {
-        text: `Aiden's Recipes`,
-        link: '/recipes',
-      },
-      leftLink: {
-        text: 'Index',
-        link: '/recipes/list',
-      },
-      rightLink: {
-        text: 'Categories',
-        link: '/recipes/categories',
-      },
-    };
+  if (pathname.startsWith('/recipes')) return {
+    centerLink: {
+      text: `Aiden's Recipes`,
+      link: '/recipes',
+    },
+    leftLink: {
+      text: 'Index',
+      link: '/recipes/list',
+    },
+    rightLink: {
+      text: 'Categories',
+      link: '/recipes/categories',
+    },
+  };
+  if (pathname.startsWith('/blog')) return {
+    centerLink: {
+      text: `Aiden's Blog`,
+      link: '/blog',
+    },
+    leftLink: {
+      text: 'All Posts',
+      link: '/recipes/list',
+    },
+    rightLink: {
+      text: 'Categories',
+      link: '/recipes/categories',
+    },
+  };
   // Add more path mappings here
 
   // Default:
