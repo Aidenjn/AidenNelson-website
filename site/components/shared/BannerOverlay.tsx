@@ -3,11 +3,13 @@
 const BannerOverlay = ({ title }: { title: string }) => (
   <div
     className="
-    py-6
-    sm:py-2
+    py-2
     w-full
     text-center
     bg-background
+    text-sm
+    sm:text-base
+    lg:text-lg
     no-underline
     "
   >
