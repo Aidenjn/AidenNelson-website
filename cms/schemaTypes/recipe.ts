@@ -143,6 +143,8 @@ export default defineType({
                   { title: 'Block', value: 'can' },
                   { title: 'Bushel', value: 'bushel' },
                   { title: 'Stick', value: 'stick' },
+                  { title: 'Pinch', value: 'pinch' },
+
                 ],
                 layout: 'dropdown',
               },
