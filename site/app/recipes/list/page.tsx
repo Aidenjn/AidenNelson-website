@@ -1,4 +1,5 @@
 import PageHeading from '@/components/shared/PageHeading';
+import SlideInAnimationDiv from '@/components/shared/SlideInAnimationDiv';
 import { client } from '@/lib/sanity';
 import { getFAIconFromTag } from '@/lib/utils/getFAIconFromTag';
 import Link from 'next/link';
@@ -77,22 +78,26 @@ export default async function RecipeListPage() {
         <ol className="mt-4 w-full">
           {recipeSections.map((recipeSection) => (
             <li key={recipeSection.character} className="mb-5">
-              <h2 className="mb-2 border-b-2 border-background w-full text-main-accent text-4xl">
-                {recipeSection.character}
-              </h2>
+              <SlideInAnimationDiv>
+                <h2 className="mb-2 border-b-2 border-background w-full text-main-accent text-4xl">
+                  {recipeSection.character}
+                </h2>
+              </SlideInAnimationDiv>
 
               <ol className="mb-4 ml-2">
                 {recipeSection.recipes.map((recipe) => (
                   <li key={recipe._id}>
-                    <Link
-                      href={`/recipes/${recipe.slug.current}`}
-                      className="nav-link-in-content text-foreground"
-                    >
-                      <div className="flex items-start gap-4 mb-3">
-                        {renderIcon(recipe.tags?.slug?.current)}
-                        <span>{recipe.title}</span>
-                      </div>
-                    </Link>
+                    <SlideInAnimationDiv>
+                      <Link
+                        href={`/recipes/${recipe.slug.current}`}
+                        className="nav-link-in-content text-foreground"
+                      >
+                        <div className="flex items-start gap-4 mb-3">
+                          {renderIcon(recipe.tags?.slug?.current)}
+                          <span>{recipe.title}</span>
+                        </div>
+                      </Link>
+                    </SlideInAnimationDiv>
                   </li>
                 ))}
               </ol>

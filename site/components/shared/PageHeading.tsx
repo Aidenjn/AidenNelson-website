@@ -2,9 +2,9 @@
 
 import { CustomIcon } from '@/lib/types/CustomIcon';
 import CustomIconSVG from './CustomIconSVG';
-import { motion } from 'framer-motion';
 import { Category } from '@/lib/types/Category';
 import CategoryIconLinks from '../views/singleRecipeView/CategoryIconLinks';
+import SlideInAnimationDiv from './SlideInAnimationDiv';
 
 export default function PageHeading({
   titleText,
@@ -17,48 +17,34 @@ export default function PageHeading({
   icon?: CustomIcon;
   categories?: Category[];
 }) {
-  // Variants for staggered animation
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
   return (
-    <motion.div
-      className="max-w-5xl mx-auto px-1 text-center"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      <motion.div className="flex items-center justify-center gap-4 mb-0" variants={itemVariants}>
-        {icon && (
-          <CustomIconSVG icon={icon} className="w-10 h-10 sm:w-15 sm:h-15 stroke-foreground" />
-        )}
-        <h1 className="text-3xl text-foreground max-w-100 sm:max-w-full font-light">{titleText}</h1>
-      </motion.div>
+    <div className="max-w-5xl mx-auto px-1 text-center">
+      <SlideInAnimationDiv>
+        <div className="flex items-center justify-center gap-4 mb-0">
+          {icon && (
+            <CustomIconSVG icon={icon} className="w-10 h-10 sm:w-15 sm:h-15 stroke-foreground" />
+          )}
+          <h1 className="text-3xl text-foreground max-w-100 sm:max-w-full font-light">
+            {titleText}
+          </h1>
+        </div>
+      </SlideInAnimationDiv>
 
       {/* Show category icons underneath the title */}
       {categories && (
-        <motion.div variants={itemVariants} className="mt-4 mb-2 text-foreground max-w-2xl mx-auto">
-          <CategoryIconLinks categories={categories} />
-        </motion.div>
+        <SlideInAnimationDiv>
+          <div className="mt-4 mb-2 text-foreground max-w-2xl mx-auto">
+            <CategoryIconLinks categories={categories} />
+          </div>
+        </SlideInAnimationDiv>
       )}
 
       {/* Show the description if there is one */}
       {descriptionText && (
-        <motion.p variants={itemVariants} className="mt-4 mb-2 text-foreground max-w-2xl mx-auto">
-          {descriptionText}
-        </motion.p>
+        <SlideInAnimationDiv>
+          <p className="mt-4 mb-2 text-foreground max-w-2xl mx-auto">{descriptionText}</p>
+        </SlideInAnimationDiv>
       )}
-    </motion.div>
+    </div>
   );
 }

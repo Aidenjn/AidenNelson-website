@@ -1,6 +1,7 @@
 import { Ingredient } from '@/lib/types/SanityTypes';
 import AddToGroceryListButton from './AddToGroceryListButton';
 import FancyCheckBox from '@/components/shared/FancyCheckBox';
+import SlideInAnimationDiv from '@/components/shared/SlideInAnimationDiv';
 
 function numberToPrettyString(num: number): string {
   const wholeNum: number = Math.floor(num);
@@ -74,21 +75,23 @@ export default function IngredientsListItem({
 }) {
   return (
     <li className="mb-2">
-      <div className="flex w-full">
-        <div className="w-5 text-center mr-6">
-          {cookMode && <FancyCheckBox />}
-          {!cookMode && (
-            <AddToGroceryListButton ingredientString={getIngredientString(ingredient)} />
-          )}
+      <SlideInAnimationDiv>
+        <div className="flex w-full">
+          <div className="w-5 text-center mr-6">
+            {cookMode && <FancyCheckBox />}
+            {!cookMode && (
+              <AddToGroceryListButton ingredientString={getIngredientString(ingredient)} />
+            )}
+          </div>
+          <div>
+            <span className="font-roboto">
+              <span className="font-bold">{`${numberToPrettyString(ingredient.quantity)}`}</span>
+              {ingredient.unit && <span>{`${ingredient.unit} `}</span>}
+              <span>{`${ingredient.ingredient}`}</span>
+            </span>
+          </div>
         </div>
-        <div>
-          <span className="font-roboto">
-            <span className="font-bold">{`${numberToPrettyString(ingredient.quantity)}`}</span>
-            {ingredient.unit && <span>{`${ingredient.unit} `}</span>}
-            <span>{`${ingredient.ingredient}`}</span>
-          </span>
-        </div>
-      </div>
+      </SlideInAnimationDiv>
     </li>
   );
 }

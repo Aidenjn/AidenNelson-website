@@ -7,6 +7,7 @@ import { getCategoriesFromTags } from '@/lib/utils/categories/getCategoriesFromT
 import { PortableText } from '@portabletext/react';
 import IngredientsList from '@/components/views/singleRecipeView/IngredientsList/IngredientsList';
 import PreparationList from '@/components/views/singleRecipeView/PreparationList/PreparationList';
+import SlideInAnimationDiv from '@/components/shared/SlideInAnimationDiv';
 
 // GROQ query for one recipe
 const query = `
@@ -61,16 +62,20 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
       <div className="mt-4 mb-2 text-foreground max-w-2xl mx-auto">
         {/** Description */}
         {recipe.description && (
-          <div className="pb-6">
-            <PortableText value={recipe.description} />
-          </div>
+          <SlideInAnimationDiv>
+            <div className="pb-6">
+              <PortableText value={recipe.description} />
+            </div>
+          </SlideInAnimationDiv>
         )}
 
         {/** Showcase image */}
         {recipe.image && (
-          <div className="mx-auto max-w-200">
-            <Carousel images={[recipe.image]} />
-          </div>
+          <SlideInAnimationDiv>
+            <div className="mx-auto max-w-200">
+              <Carousel images={[recipe.image]} />
+            </div>
+          </SlideInAnimationDiv>
         )}
 
         {/** Ingredients list */}

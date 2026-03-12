@@ -6,6 +6,7 @@ import { Project } from '@/lib/types/SanityTypes';
 import Image from 'next/image';
 import Carousel from '@/components/views/singleRecipeView/carousel/Carousel';
 import { FaUpRightFromSquare } from 'react-icons/fa6';
+import SlideInAnimationDiv from '@/components/shared/SlideInAnimationDiv';
 
 // GROQ query for one project
 const query = `
@@ -56,37 +57,47 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <div className="mt-4 mb-2 text-foreground max-w-2xl mx-auto">
         {/** Project link */}
         {project.projectLink && (
-          <div className="pb-4 text-center w-full">
-            <a href={project.projectLink} target="_blank" rel="noopener noreferrer">
-              {'View Live Project '}
-              <FaUpRightFromSquare className="inline ml-2" />
-            </a>
-          </div>
+          <SlideInAnimationDiv>
+            <div className="pb-4 text-center w-full">
+              <a href={project.projectLink} target="_blank" rel="noopener noreferrer">
+                {'View Live Project '}
+                <FaUpRightFromSquare className="inline ml-2" />
+              </a>
+            </div>
+          </SlideInAnimationDiv>
         )}
 
         {/** Description */}
         {project.description && (
-          <div className="pb-6">
-            <PortableText value={project.description} />
-          </div>
+          <SlideInAnimationDiv>
+            <div className="pb-6">
+              <PortableText value={project.description} />
+            </div>
+          </SlideInAnimationDiv>
         )}
 
         {/** Showcase image */}
         {project.featuredImage && (
-          <div className="mx-auto max-w-200">
-            <Carousel images={[project.featuredImage]} />
-          </div>
+          <SlideInAnimationDiv>
+            <div className="mx-auto max-w-200">
+              <Carousel images={[project.featuredImage]} />
+            </div>
+          </SlideInAnimationDiv>
         )}
 
         {/** Project features */}
         {project.projectFeatures && project.projectFeatures.length > 0 && (
           <div className="pb-8">
-            <h2 className="text-2xl font-light mb-4">Features</h2>
+            <SlideInAnimationDiv>
+              <h2 className="text-2xl font-light mb-4">Features</h2>
+            </SlideInAnimationDiv>
             <ul className="list-disc pl-6 space-y-2">
               {project.projectFeatures.map((feature) => (
-                <li key={feature._key}>
-                  <PortableText value={feature.text} />
-                </li>
+                <SlideInAnimationDiv key={feature._key}>
+                  <li>
+                    <PortableText value={feature.text} />
+                  </li>
+                </SlideInAnimationDiv>
               ))}
             </ul>
           </div>

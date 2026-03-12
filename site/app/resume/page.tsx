@@ -6,6 +6,7 @@ import EducationSection from '@/components/views/resumeView/EducationSection';
 // import SkillsSection from '@/components/views/resumeView/SkillsSection';
 import SectionDivider from '@/components/views/resumeView/SectionDivider';
 import SocialLinks from '@/components/views/mainView/SocialLinks';
+import SlideInAnimationDiv from '@/components/shared/SlideInAnimationDiv';
 
 export default function ResumePage() {
   const resumeData: ResumeData = RESUME_DATA;
@@ -14,9 +15,11 @@ export default function ResumePage() {
     <main>
       <PageHeading titleText="Résumé" />
       <div className="mb-2 text-foreground max-w-2xl mx-auto">
-        <div className="py-8">
-          <SocialLinks />
-        </div>
+        <SlideInAnimationDiv>
+          <div className="py-8">
+            <SocialLinks />
+          </div>
+        </SlideInAnimationDiv>
         <SectionDivider />
         <ExperienceSection experiences={resumeData.experiences} />
         <SectionDivider />
