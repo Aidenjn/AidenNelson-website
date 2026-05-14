@@ -19,6 +19,7 @@ import {
   FaMartiniGlass,
   FaPlateWheat,
   FaWheatAwn,
+  FaLeaf,
 } from 'react-icons/fa6';
 
 const tagToIconMap: Record<string, IconType> = {
@@ -40,6 +41,7 @@ const tagToIconMap: Record<string, IconType> = {
   smoothie: FaBlender,
   beverage: FaGlassWater,
   cocktail: FaMartiniGlass,
+  salads: FaLeaf,
 };
 
 export function getFAIconFromTag(tag: string): IconType | undefined {

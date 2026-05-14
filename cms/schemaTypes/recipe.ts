@@ -140,7 +140,7 @@ export default defineType({
                   { title: 'Milliliter (ml)', value: 'ml' },
                   { title: 'Pound (lb)', value: 'lb' },
                   { title: 'Can', value: 'can' },
-                  { title: 'Block', value: 'can' },
+                  { title: 'Block', value: 'block' },
                   { title: 'Bushel', value: 'bushel' },
                   { title: 'Stick', value: 'stick' },
                   { title: 'Pinch', value: 'pinch' },

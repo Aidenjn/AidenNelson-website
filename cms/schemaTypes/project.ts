@@ -118,6 +118,11 @@ export default defineType({
           name: 'contentSection',
           fields: [
             {
+              name: 'heading',
+              title: 'Heading',
+              type: 'string',
+            },
+            {
               name: 'text',
               title: 'Text',
               type: 'array',
