@@ -13,14 +13,21 @@ export default function Home() {
 
         {/* Story Sections */}
         <StorySection
+          image_url="/images/skye_pic.png"
+          heading="School Teacher"
+          flow_left={true}
+          icon={CustomIcon.JoySquint}
+        >
+          {`I am proud to be working as a kindergarten teacher! The image to the left is a placeholder. This paragraph is also a placeholder for a better, future paragraph.`}
+        </StorySection>
+        <StorySection
           image_url="/images/cat_coding.JPG"
           heading="Software Engineer"
-          flow_left={true}
+          flow_left={false}
           icon={CustomIcon.Cat}
         >
-          {`I'm a software engineer with professional experience building applications used by people in their day-to-day work, primarily in the EdTech sector.
-          My experience spans frontend and backend development, testing and debugging, internal tooling, and deployment workflows.
-          I focus on building systems that are reliable and maintainable for the long term, and I'm seeking opportunities to contribute to mission-driven teams working on projects that support and strengthen communities.`}
+          {`Prior to teaching, I was a software engineer. I have professional experience building applications used by people in their day-to-day work, primarily in the EdTech sector.
+          My experience spans frontend and backend development, testing and debugging, internal tooling, and deployment workflows. Nowadays I code for fun in my free time and work on various projects that are of interest to me.`}
         </StorySection>
         {/** UNCOMMENT THE BELOW ONCE PROJECTS PAGE IS DONE */}
         {/* <StorySection
@@ -49,7 +56,7 @@ export default function Home() {
         <StorySection
           image_url="/images/mrpurplepout.jpg"
           heading="Ceramic Artist"
-          flow_left={false}
+          flow_left={true}
           icon={CustomIcon.Triclopes}
         >
           {`In my free time I enjoy making functional ceramic objects by wheel and hand.
